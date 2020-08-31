@@ -10,7 +10,7 @@ const MenuItem = ({name, handleClose}) => (
 );
 
 const MenuCategory = ({items, name, handleClose}) => { 
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     
     return (
         <div className="menu-list section">

@@ -12,7 +12,7 @@ module.exports = {
             resolve: `gatsby-source-filesystem`,
             options: {
               name: `mortar`,
-              path: `${__dirname}/dist/bundle`,
+              path: `${__dirname}/dist`,
             },
         },
         {
@@ -27,8 +27,8 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-copy-files-enhanced',
             options: {
-                source: `${__dirname}/dist/bundle`,
-                destination: '/',
+                source: `${__dirname}/dist`,
+                destination: '/mortar',
                 purge: true
             }
         },

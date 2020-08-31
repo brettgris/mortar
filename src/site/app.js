@@ -9,7 +9,7 @@ const App = ({children}) => {
     useEffect(() => {
         const script = document.createElement("script");
         
-        script.src = "/bundle.js";
+        script.src = "/mortar/mortar.js";
         script.async = true;
         
         document.body.appendChild(script);
