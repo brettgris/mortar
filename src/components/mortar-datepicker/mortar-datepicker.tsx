@@ -165,8 +165,8 @@ export class MortarDatepicker {
           </div>
           <mortar-datepicker-calendar
             ref={this.handleCalendarRef}
-            minDate={this.min}
-            maxDate={this.max}
+            min={this.min}
+            max={this.max}
             onSelectDate={this.handleSelect}
             onClearDate={this.handleClear}
             onClickDate={this.handleClickDate}

@@ -72,19 +72,19 @@ export namespace Components {
         "valueString": string;
     }
     interface MortarDatepickerCalendar {
-        "current": Date;
+        "current": Date | string;
         "customClass": (_year: any, _month: any, _date: any) => string;
         "days": string[];
         "embed": boolean;
         "focused": boolean;
         "header": boolean;
         "highlight": number;
-        "maxDate": Date;
-        "minDate": Date;
+        "max": Date | string;
+        "min": Date | string;
         "monthPlaceholder": string;
         "months": string[];
         "open": boolean;
-        "selected": Date;
+        "selected": Date | string;
         "yearPlaceholder": string;
     }
     interface MortarDropdown {
@@ -482,15 +482,15 @@ declare namespace LocalJSX {
         "valueString"?: string;
     }
     interface MortarDatepickerCalendar {
-        "current"?: Date;
+        "current"?: Date | string;
         "customClass"?: (_year: any, _month: any, _date: any) => string;
         "days"?: string[];
         "embed"?: boolean;
         "focused"?: boolean;
         "header"?: boolean;
         "highlight"?: number;
-        "maxDate"?: Date;
-        "minDate"?: Date;
+        "max"?: Date | string;
+        "min"?: Date | string;
         "monthPlaceholder"?: string;
         "months"?: string[];
         "onClearDate"?: (event: CustomEvent<void>) => void;
@@ -499,7 +499,7 @@ declare namespace LocalJSX {
         "onKeyboardSelect"?: (event: CustomEvent<KeyboardEvent>) => void;
         "onSelectDate"?: (event: CustomEvent<Date>) => void;
         "open"?: boolean;
-        "selected"?: Date;
+        "selected"?: Date | string;
         "yearPlaceholder"?: string;
     }
     interface MortarDropdown {

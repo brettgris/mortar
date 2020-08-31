@@ -11,10 +11,10 @@ export class MortarDatepicker {
     @Prop() months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     @Prop() monthPlaceholder = 'Month';
     @Prop() yearPlaceholder = 'Year';
-    @Prop() selected: Date;
-    @Prop() current: Date;
-    @Prop() minDate: Date;
-    @Prop() maxDate: Date;
+    @Prop() selected: Date | string;
+    @Prop() current: Date | string;
+    @Prop() min: Date | string;
+    @Prop() max: Date | string;
     @Prop() open = false;
     @Prop() focused = false;
     @Prop() highlight = -1;
@@ -69,8 +69,8 @@ export class MortarDatepicker {
 
     getAvailableYears = () => {
         const today = new Date();
-        const min = this.minDate || new Date(today.getFullYear()-5,today.getMonth(),today.getDate());
-        const max = this.maxDate || new Date(today.getFullYear()+5,today.getMonth(),today.getDate());
+        const min = new Date(this.min) || new Date(today.getFullYear()-5,today.getMonth(),today.getDate());
+        const max = new Date(this.max) || new Date(today.getFullYear()+5,today.getMonth(),today.getDate());
 
         const minYear = min.getFullYear();
         const maxYear = max.getFullYear();
@@ -87,12 +87,12 @@ export class MortarDatepicker {
     }
 
     getMonthValue = () => {
-        const v = this.current || this.selected || this.getDefaultDate();
+        const v = this.getCurrentDate();
         return `${v.getMonth()}`;
     }
 
     getYearValue = () => {
-        const v = this.current || this.selected || this.getDefaultDate();
+        const v = this.getCurrentDate();
         return `${v.getFullYear()}`;
     }
 
@@ -111,15 +111,17 @@ export class MortarDatepicker {
     * ***/
     changeCurrent = (month, year, highlight = -1) => {
         let c = new Date(year, month);
-        if (this.minDate) {
-            const min = new Date(this.minDate.getFullYear(), this.minDate.getMonth());
+        if (this.min) {
+            const md = new Date(this.min);
+            const min = new Date(md.getFullYear(), md.getMonth());
             if (c < min) {
                 c = min;
             }
         }
         
-        if (this.maxDate) {
-            const max = new Date(this.maxDate.getFullYear(), this.maxDate.getMonth());
+        if (this.max) {
+            const md = new Date(this.max);
+            const max = new Date(md.getFullYear(), md.getMonth());
             if (c > max) {
                 c = max;
             }
@@ -131,7 +133,7 @@ export class MortarDatepicker {
 
     //Next & Previous Buttons, change current by val
     handleChangeMonth = (val) => {
-        const v = this.current || this.selected || this.getDefaultDate();
+        const v = this.getCurrentDate();
         let m = v.getMonth() + val;
         let y = v.getFullYear();
         if (m === -1) {
@@ -148,31 +150,42 @@ export class MortarDatepicker {
 
     //Month Dropdown Select Month
     handleChangeCurrentMonth = (evt) => {
-        const v = this.current || this.selected || this.getDefaultDate();
+        const v = this.getCurrentDate();
         this.changeCurrent(evt.detail.value, v.getFullYear());
     }
 
     //Year Dropdown Select Year
     handleChangeCurrentYear = (evt) => {
-        const v = this.current || this.selected || this.getDefaultDate();
+        const v = this.getCurrentDate();
         this.changeCurrent(v.getMonth(), evt.detail.value);
     }
 
     //Display Current Month
     getCurrentMonth = () => {
-        const v = this.current || this.selected || this.getDefaultDate();
+        const v = this.getCurrentDate();
         return `${this.months[v.getMonth()]} ${v.getFullYear()}`
+    }
+
+    getCurrentDate = () => {
+        if (this.current) {
+            return new Date(this.current);
+        } else if (this.selected) {
+            return new Date(this.selected);
+        } else {
+            return this.getDefaultDate();
+        }
     }
 
     //Get Default Date if Today is
     getDefaultDate = () => {
         let d = new Date();
-        if (this.minDate && d < this.minDate) {
-            d = this.minDate;
+
+        if (this.min && d < new Date(this.min)) {
+            d = new Date(this.min);
         }
 
-        if (this.maxDate && d > this.maxDate) {
-            d = this.maxDate;
+        if (this.max && d > new Date(this.max)) {
+            d = new Date(this.max);
         }
 
         return d;
@@ -258,13 +271,14 @@ export class MortarDatepicker {
     }
 
     changeHighlight(amt) {
-        const d = this.current || this.selected || this.getDefaultDate();
+        const d = this.getCurrentDate();
         const cm = this.getDaysInMonth(d);
 
         if (this.highlight === -1) {
             const today = new Date();
-            if (this.selected && this.selected.getMonth() === cm.month && this.selected.getFullYear() === cm.year) {
-                this.highlight = this.selected.getDate();
+            const sd = new Date(this.selected);
+            if (this.selected && sd.getMonth() === cm.month && sd.getFullYear() === cm.year) {
+                this.highlight = sd.getDate();
             } else if (today.getMonth() === cm.month && today.getFullYear() === cm.year) {
                 this.highlight = today.getDate();
             } else {
@@ -283,7 +297,7 @@ export class MortarDatepicker {
 
     selectHighlight(evt) {
         if (this.highlight >= 0) {
-            const d = this.current || this.selected || this.getDefaultDate();
+            const d = this.getCurrentDate();
             this.handleSelectDay(d.getFullYear(), d.getMonth(), this.highlight, evt);
         } 
     }
@@ -324,10 +338,7 @@ export class MortarDatepicker {
     /*** 
      * Month Display
      * ***/
-    getCalendarDays = () => {
-        const v = this.current || this.selected || this.getDefaultDate(); 
-        const cm = this.getDaysInMonth(v);
-
+    getCalendarDays = (cm) => {
         let arr = Array.apply(null, Array(cm.rows));
         let current = 0;
         let next = 0;
@@ -405,17 +416,20 @@ export class MortarDatepicker {
     }
 
     isSelected = (y, m, d) => {
-        return (this.selected && y === this.selected.getFullYear() && m === this.selected.getMonth() && d === this.selected.getDate());
+        const sd = new Date(this.selected);
+        return (this.selected && y === sd.getFullYear() && m === sd.getMonth() && d === sd.getDate());
     }
 
     isAvailable = (y, m, d) => {
         const v = new Date(y, m, d);
-        if (this.minDate && this.maxDate) {
-            return (v >= this.minDate && v <= this.maxDate);
-        } else if (this.minDate) {
-            return v >= this.minDate;
-        } else if (this.maxDate) {
-            return v <= this.maxDate;
+        const md = new Date(this.min);
+        const xd = new Date(this.max);
+        if (this.min && this.max) {
+            return (v >= md && v <= xd);
+        } else if (this.min) {
+            return v >= md;
+        } else if (this.max) {
+            return v <= xd;
         } else {
             return true;
         }
@@ -443,6 +457,12 @@ export class MortarDatepicker {
     }
     
     renderEl() {
+        const v = this.getCurrentDate();
+        const cm = this.getDaysInMonth(v);
+
+        const minallowed = new Date(cm.previous.year, cm.previous.month, cm.length) > new Date(this.min);
+        const maxallowed = new Date(cm.next.year, cm.next.month, 1) < new Date(this.max);
+        console.log(minallowed, maxallowed);
         return (
             <div class={this.className()}>
                 {this.header && 
@@ -474,9 +494,12 @@ export class MortarDatepicker {
                 }
                 <div class="datepicker-header">
                     <div class="datepicker-header-previous">
-                        <button onClick={() => this.handleChangeMonth(-1)}>
-                            <mortar-icon kind="back" arialabel="Previous Month"></mortar-icon>
-                        </button>
+
+                        {minallowed &&
+                            <button onClick={() => this.handleChangeMonth(-1)}>
+                                <mortar-icon kind="back" arialabel="Previous Month"></mortar-icon>
+                            </button>
+                        }
                     </div>
                     <div class="datepicker-header-display">
                         <span>
@@ -484,9 +507,11 @@ export class MortarDatepicker {
                         </span>
                     </div>
                     <div class="datepicker-header-next">
-                        <button onClick={() => this.handleChangeMonth(1)}>
-                            <mortar-icon kind="next" arialabel="Next Month"></mortar-icon>
-                        </button>
+                        {maxallowed && 
+                            <button onClick={() => this.handleChangeMonth(1)}>
+                                <mortar-icon kind="next" arialabel="Next Month"></mortar-icon>
+                            </button>
+                        }
                     </div>
                 </div>
                 <div class="datepicker-body" 
@@ -508,7 +533,7 @@ export class MortarDatepicker {
                         }
                     </div>
                     <div class="datepicker-content">
-                        {this.getCalendarDays()}
+                        {this.getCalendarDays(cm)}
                     </div>
                 </div>
             </div>
