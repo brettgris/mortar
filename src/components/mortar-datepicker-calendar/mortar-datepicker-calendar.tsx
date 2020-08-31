@@ -45,7 +45,6 @@ export class MortarDatepicker {
         } else {
             focusLock.on(this.root);
             const r:HTMLElement = this.root;
-            console.log("here", this.root, focusLock)
             setTimeout(function() {
                 const el:HTMLElement = r.querySelector('.datepicker-body');
                 el.focus();

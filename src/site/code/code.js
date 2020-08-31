@@ -36,8 +36,6 @@ const Code = ({children}) => {
     }
 
     const lang = children.props.className.slice(5);
-    console.log(lang);
-
     return (
         <Highlight {...defaultProps} theme={theme} code={children.props.children} language={lang}>
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
