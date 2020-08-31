@@ -62,13 +62,13 @@ export namespace Components {
         "header": boolean;
         "label": string;
         "mask": string;
-        "max": Date;
-        "min": Date;
+        "max": Date | string;
+        "min": Date | string;
         "name": string;
         "open": boolean;
         "placeholder": string;
         "required": boolean;
-        "value": Date;
+        "value": Date | string;
         "valueString": string;
     }
     interface MortarDatepickerCalendar {
@@ -468,8 +468,8 @@ declare namespace LocalJSX {
         "header"?: boolean;
         "label"?: string;
         "mask"?: string;
-        "max"?: Date;
-        "min"?: Date;
+        "max"?: Date | string;
+        "min"?: Date | string;
         "name"?: string;
         "onClearDate"?: (event: CustomEvent<void>) => void;
         "onDateOutOfRange"?: (event: CustomEvent<Date>) => void;
@@ -478,7 +478,7 @@ declare namespace LocalJSX {
         "open"?: boolean;
         "placeholder"?: string;
         "required"?: boolean;
-        "value"?: Date;
+        "value"?: Date | string;
         "valueString"?: string;
     }
     interface MortarDatepickerCalendar {

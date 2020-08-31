@@ -9,18 +9,20 @@ export class MortarDatepicker {
   @Prop() error = '';
   @Prop() haserror = false;
   @Prop() open = false;
-  @Prop() min: Date = new Date(1900, 0, 1);
-  @Prop() max: Date = new Date(2100, 11, 31);
+  @Prop() min: Date | string = new Date(1900, 0, 1);
+  @Prop() max: Date | string = new Date(2100, 11, 31);
   @Prop() dateToString = (date) => {
     if (!date) return '';
 
-    const m = date.getMonth() + 1;
+    let nd = new Date(date);
+
+    const m = nd.getMonth() + 1;
     const ms = (m >= 10) ? m : '0'+m;
-    const d = date.getDate();
+    const d = nd.getDate();
     const ds = (d >= 10) ? d : '0'+d;
-    return `${ms}/${ds}/${date.getFullYear()}`;
+    return `${ms}/${ds}/${nd.getFullYear()}`;
   }
-  @Prop() value: Date;
+  @Prop() value: Date | string;
   @Prop() valueString = '';
   @Prop() mask = 'Date';
   @Prop() required = true;
@@ -117,7 +119,7 @@ export class MortarDatepicker {
 
 
       const nd = new Date(d);
-      if (nd.getTime() && nd > this.min && nd < this.max) {
+      if (nd.getTime() && nd > new Date(this.min) && nd < new Date(this.max)) {
         this.valueString = this.dateToString(nd);
         this.value = nd;
         this.selectDate.emit(nd);

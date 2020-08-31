@@ -462,7 +462,6 @@ export class MortarDatepicker {
 
         const minallowed = new Date(cm.previous.year, cm.previous.month, cm.length) > new Date(this.min);
         const maxallowed = new Date(cm.next.year, cm.next.month, 1) < new Date(this.max);
-        console.log(minallowed, maxallowed);
         return (
             <div class={this.className()}>
                 {this.header && 

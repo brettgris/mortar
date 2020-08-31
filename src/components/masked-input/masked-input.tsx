@@ -40,6 +40,7 @@ export class MaskedInput {
 
   createTextMask(options) {
     const inputElement = this.root.querySelector('input');
+    inputElement.value = this.value;
     this.mask = textMask({
       inputElement,
       ...options
