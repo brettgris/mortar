@@ -1,0 +1,25 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "ie": "11"
+                },
+                "useBuiltIns": "usage",
+                "corejs": 3
+            }
+        ],
+        "@babel/preset-react"
+	],
+	"plugins": [
+		"@babel/plugin-syntax-dynamic-import",
+		[
+			"@babel/plugin-transform-runtime",
+			{
+				"useESModules": true
+			}
+        ],
+        "@babel/plugin-proposal-class-properties"
+	]
+}

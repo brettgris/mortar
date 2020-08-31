@@ -1,0 +1,123 @@
+@rem: 16rem;
+@breakpoint: 800px;
+
+body {
+    background: #F6F9FC;
+    color: #4c4c4c;
+    padding: 0;
+    margin: 0;
+}
+
+.site-wrapper {
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+header {
+    height: 100%;
+    
+    float: left;
+
+    .menu-btn {
+        display: none;
+    }
+
+    .header-wrapper {
+        padding: 1rem;
+    }
+
+    nav {
+        height: calc(100% - 3.5rem);
+        width: 250/@rem;
+        overflow-y: auto;
+        padding: 1rem;
+        box-sizing: border-box;
+
+        .section {
+            width: 210/@rem;
+        }
+    }
+
+    @media (max-width: @breakpoint) {
+        width: 100%;
+        height: auto;
+        float: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+
+        .header-wrapper {
+            margin-bottom: 0;
+        }
+
+        .logo {
+            flex: 1;
+            text-align: center;
+            padding: 0 2.25rem;
+        }
+        .menu-btn {
+            display: block;
+        }
+
+        nav {
+            visibility: hidden;
+            position: fixed;
+            top: 3.5rem;
+            left: 0;
+            transform: translateX(-100%);
+            background: #F6F9FC;
+            width: 250/@rem;
+            padding: 1rem;
+            height: calc(100vh - 3.5rem);
+            overflow-y: auto;
+            box-sizing: border-box;
+            z-index: 500;
+            transition: all .3s ease-in;
+
+            .section {
+                width: 200/@rem;
+            }
+
+            &.show {
+                visibility: visible;
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+.mortar-wrapper {
+    main.main {
+        float: left;
+        width: calc(100% - 15.625rem);
+        padding: 1rem;
+        box-sizing: border-box;
+        overflow-y: auto;
+        height: 100%;
+    
+        @media (max-width: @breakpoint) {
+            width: 100%;
+            height: auto;
+            float: none;
+            position: fixed;
+            top: 3.5rem;
+            height: calc(100vh - 3.5rem);
+            overflow-y: auto;
+        }
+    
+        .content {
+            background : #ffffff;
+            box-shadow: 0 1px 5px 0 rgba(0,0,0,0.1);
+            border-radius: 4/@rem;
+            padding: 1rem;
+            box-sizing: border-box;
+            min-height: 100%;
+        }
+    }
+}
+
+
