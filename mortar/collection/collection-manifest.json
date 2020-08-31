@@ -1,0 +1,35 @@
+{
+  "entries": [
+    "./components/masked-input/masked-input.js",
+    "./components/mortar-alert/mortar-alert.js",
+    "./components/mortar-button/mortar-button.js",
+    "./components/mortar-checkbox/mortar-checkbox.js",
+    "./components/mortar-checkbox-item/mortar-checkbox-item.js",
+    "./components/mortar-datepicker/mortar-datepicker.js",
+    "./components/mortar-datepicker-calendar/mortar-datepicker-calendar.js",
+    "./components/mortar-dropdown-item/mortar-dropdown-item.js",
+    "./components/mortar-dropdown/mortar-dropdown.js",
+    "./components/mortar-file-upload/mortar-file-upload.js",
+    "./components/mortar-form-element/mortar-form-element.js",
+    "./components/mortar-icon/mortar-icon.js",
+    "./components/mortar-illustration/mortar-illustration.js",
+    "./components/mortar-input/mortar-input.js",
+    "./components/mortar-message/mortar-message.js",
+    "./components/mortar-modal/mortar-modal.js",
+    "./components/mortar-radio/mortar-radio.js",
+    "./components/mortar-radio-item/mortar-radio-item.js",
+    "./components/mortar-radio-toggle/mortar-radio-toggle.js",
+    "./components/mortar-radio-toggle-item/mortar-radio-toggle-item.js",
+    "./components/mortar-range/mortar-range.js",
+    "./components/mortar-textarea/mortar-textarea.js",
+    "./components/mortar-toggle/mortar-toggle.js",
+    "./components/mortar-tooltip/mortar-tooltip.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.12.2",
+    "typescriptVersion": "3.8.3"
+  },
+  "collections": [],
+  "bundles": []
+}

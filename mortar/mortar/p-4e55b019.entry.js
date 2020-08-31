@@ -1,0 +1,1 @@
+import{r,h as s}from"./p-35a71817.js";const t=class{constructor(s){r(this,s),this.label="",this.haserror=!1,this.error=""}render(){return s("mortar-form-element",{legend:this.label,haserror:this.haserror,error:this.error,elementclass:"checkbox"},s("slot",null))}};export{t as mortar_checkbox}

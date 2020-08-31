@@ -1,0 +1,1 @@
+import{r,h as t}from"./p-35a71817.js";const s=class{constructor(t){r(this,t),this.label="",this.error="",this.haserror=!1}render(){return t("mortar-form-element",{legend:this.label,error:this.error,haserror:this.haserror,elementclass:"radio-button-group"},t("slot",null))}};export{s as mortar_radio_toggle}
