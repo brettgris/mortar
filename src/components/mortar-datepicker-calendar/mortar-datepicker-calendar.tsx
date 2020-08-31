@@ -13,8 +13,8 @@ export class MortarDatepicker {
     @Prop() yearPlaceholder = 'Year';
     @Prop() selected: Date | string;
     @Prop() current: Date | string;
-    @Prop() min: Date | string;
-    @Prop() max: Date | string;
+    @Prop() min: Date | string = new Date(1900, 0, 1);
+    @Prop() max: Date | string = new Date(2100, 11, 31);
     @Prop() open = false;
     @Prop() focused = false;
     @Prop() highlight = -1;
@@ -460,8 +460,8 @@ export class MortarDatepicker {
         const v = this.getCurrentDate();
         const cm = this.getDaysInMonth(v);
 
-        const minallowed = new Date(cm.previous.year, cm.previous.month, cm.length) > new Date(this.min);
-        const maxallowed = new Date(cm.next.year, cm.next.month, 1) < new Date(this.max);
+        const minallowed = (this.min) ? new Date(cm.previous.year, cm.previous.month, cm.length) > new Date(this.min): true;
+        const maxallowed = (this.max) ? new Date(cm.next.year, cm.next.month, 1) < new Date(this.max) : true;
         return (
             <div class={this.className()}>
                 {this.header && 
