@@ -15,10 +15,14 @@ body {
     position: relative;
 }
 
-header {
-    height: 100%;
-    
+.header-wrapper {
+    width: 250/@rem;
     float: left;
+    height: 100%;
+}
+
+header {
+    height: 3.5rem;
 
     .menu-btn {
         display: none;
@@ -26,18 +30,6 @@ header {
 
     .header-wrapper {
         padding: 1rem;
-    }
-
-    nav {
-        height: calc(100% - 3.5rem);
-        width: 250/@rem;
-        overflow-y: auto;
-        padding: 1rem;
-        box-sizing: border-box;
-
-        .section {
-            width: 210/@rem;
-        }
     }
 
     @media (max-width: @breakpoint) {
@@ -62,30 +54,41 @@ header {
         .menu-btn {
             display: block;
         }
+    }
+}
 
-        nav {
-            visibility: hidden;
-            position: fixed;
-            top: 3.5rem;
+nav {
+    height: calc(100% - 3.5rem);
+    width: 250/@rem;
+    overflow-y: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+
+    .section {
+        width: 210/@rem;
+    }
+
+    @media (max-width: @breakpoint) {
+        visibility: hidden;
+        position: fixed;
+        top: 3.5rem;
+        left: -200/@rem;
+        background: #F6F9FC;
+        width: 250/@rem;
+        padding: 1rem;
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+        box-sizing: border-box;
+        z-index: 500;
+        transition: left .3s ease-in;
+
+        .section {
+            width: 200/@rem;
+        }
+
+        &.show {
+            visibility: visible;
             left: 0;
-            transform: translateX(-100%);
-            background: #F6F9FC;
-            width: 250/@rem;
-            padding: 1rem;
-            height: calc(100vh - 3.5rem);
-            overflow-y: auto;
-            box-sizing: border-box;
-            z-index: 500;
-            transition: all .3s ease-in;
-
-            .section {
-                width: 200/@rem;
-            }
-
-            &.show {
-                visibility: visible;
-                transform: translateX(0);
-            }
         }
     }
 }
@@ -107,6 +110,10 @@ header {
             top: 3.5rem;
             height: calc(100vh - 3.5rem);
             overflow-y: auto;
+
+            .content {
+
+            }
         }
     
         .content {
