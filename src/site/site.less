@@ -101,6 +101,7 @@ nav {
         box-sizing: border-box;
         overflow-y: auto;
         height: 100%;
+        
     
         @media (max-width: @breakpoint) {
             width: 100%;
@@ -108,8 +109,9 @@ nav {
             float: none;
             position: fixed;
             top: 3.5rem;
-            height: calc(100vh - 3.5rem);
+            height: calc(100% - 5rem);
             overflow-y: auto;
+            background: red;
 
             .content {
 
@@ -123,6 +125,7 @@ nav {
             padding: 1rem;
             box-sizing: border-box;
             min-height: 100%;
+            
         }
     }
 }
