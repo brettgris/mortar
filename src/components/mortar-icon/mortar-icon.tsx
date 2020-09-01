@@ -16,7 +16,9 @@ export class MortarIcon implements ComponentInterface {
   render() {
     return (
       <Host>
-        <i class={this.className()} aria-label={this.arialabel}></i>
+        <i class={this.className()} aria-label={this.arialabel}>
+          <slot></slot>
+        </i>
       </Host>
     );
   }
