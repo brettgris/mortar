@@ -23,6 +23,7 @@ include: true
 | `error`    | `error`    |             | `string`  | `''`    |
 | `haserror` | `haserror` |             | `boolean` | `false` |
 | `label`    | `label`    |             | `string`  | `''`    |
+| `name`     | `name`     |             | `string`  | `''`    |
 
 
 ## Dependencies

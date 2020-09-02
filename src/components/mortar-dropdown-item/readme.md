@@ -8,9 +8,9 @@ include: true
 ```example
 <mortar-dropdown label="Select Number" placeholder="Please select a value">
     <mortar-dropdown-item value="1" label="One"></mortar-dropdown-item>
-    <mortar-dropdown-item value="2" label="Two" selected="true"></mortar-dropdown-item>
+    <mortar-dropdown-item value="2" label="Two" selected></mortar-dropdown-item>
     <mortar-dropdown-item value="3" label="Three"></mortar-dropdown-item>
-    <mortar-dropdown-item value="4" label="Four" disabled="true"></mortar-dropdown-item>
+    <mortar-dropdown-item value="4" label="Four" disabled></mortar-dropdown-item>
     <mortar-dropdown-item value="5" label="Five"></mortar-dropdown-item>
 </mortar-dropdown>
 ```

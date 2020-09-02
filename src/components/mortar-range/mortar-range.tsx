@@ -11,8 +11,8 @@ export class MortarRange {
   @Prop() error = '';
   @Prop() minlabel = '';
   @Prop() maxlabel = '';
-  @Prop() minrequired = true;
-  @Prop() maxrequired = true;
+  @Prop() minrequired = false;
+  @Prop() maxrequired = false;
   @Prop() disabled = false;
   @Prop() minplaceholder = '';
   @Prop() maxplaceholder = '';
@@ -27,7 +27,7 @@ export class MortarRange {
 
   inputClassName = () => {
     return classnames({
-      'error': this.haserror === true
+      'error': this.haserror
     })
   }
 
@@ -38,6 +38,7 @@ export class MortarRange {
         haserror={this.haserror}
         error={this.error}
         elementclass={this.className()}
+        name={this.name}
       >
         <div>
             {this.minlabel && 
@@ -46,8 +47,9 @@ export class MortarRange {
             <input 
               id={`${this.name}-min`} 
               type="text" 
-              disabled={this.disabled === true} 
+              disabled={this.disabled} 
               required={this.minrequired} 
+              aria-required={this.minrequired}
               class={this.inputClassName()} 
               placeholder={this.minplaceholder}
               value={this.minvalue}
@@ -58,8 +60,9 @@ export class MortarRange {
             <input 
               id={`${this.name}-max`}
               type="text" 
-              disabled={this.disabled === true} 
+              disabled={this.disabled} 
               required={this.maxrequired} 
+              aria-required={this.maxrequired}
               class={this.inputClassName()} 
               placeholder={this.maxplaceholder}
               value={this.maxvalue}

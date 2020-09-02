@@ -14,9 +14,9 @@ export class MortarTooltip implements ComponentInterface {
     return classnames(
       'mortar-tooltip-text', this.position,
       {
-        'transition': this.transition === true,
-        'hover': this.hover === true,
-        'mortar-tooltip-open': this.open === true
+        'transition': this.transition,
+        'hover': this.hover,
+        'mortar-tooltip-open': this.open
       }
     );
   }

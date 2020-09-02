@@ -29,11 +29,11 @@ include: true
 | `label`          | `label`          |             | `string`  | `''`            |
 | `maxlabel`       | `maxlabel`       |             | `string`  | `''`            |
 | `maxplaceholder` | `maxplaceholder` |             | `string`  | `''`            |
-| `maxrequired`    | `maxrequired`    |             | `boolean` | `true`          |
+| `maxrequired`    | `maxrequired`    |             | `boolean` | `false`         |
 | `maxvalue`       | `maxvalue`       |             | `string`  | `''`            |
 | `minlabel`       | `minlabel`       |             | `string`  | `''`            |
 | `minplaceholder` | `minplaceholder` |             | `string`  | `''`            |
-| `minrequired`    | `minrequired`    |             | `boolean` | `true`          |
+| `minrequired`    | `minrequired`    |             | `boolean` | `false`         |
 | `minvalue`       | `minvalue`       |             | `string`  | `''`            |
 | `name`           | `name`           |             | `string`  | `'input-range'` |
 | `size`           | `size`           |             | `string`  | `'md'`          |

@@ -9,8 +9,7 @@ export class MortarCheckboxItem {
     @Prop() label = '';
     @Prop() value = '';
     @Prop() disabled = false;
-    @Prop() required = true;
-    @Prop() group = '';
+    @Prop() required = false;
     @Prop() name = '';
     @Prop() checked = false;
     @Prop() indeterminate = false;
@@ -18,9 +17,9 @@ export class MortarCheckboxItem {
 
     className = () => {
         return classnames({
-            'checkbox-default': this.indeterminate !== true,
-            'checkbox-indeterminate': this.indeterminate === true,
-            'error': this.haserror === true
+            'checkbox-default': !this.indeterminate,
+            'checkbox-indeterminate': this.indeterminate,
+            'error': this.haserror
         })
     }
 
@@ -30,9 +29,9 @@ export class MortarCheckboxItem {
                 <input type="checkbox" 
                     id={this.name} 
                     class={this.className()} 
-                    disabled={this.disabled === true} 
-                    required={this.required === true}
-                    checked={this.checked === true}
+                    disabled={this.disabled} 
+                    required={this.required}
+                    checked={this.checked}
                 />
                 <label htmlFor={this.name}>{this.label}</label>
             </Host>

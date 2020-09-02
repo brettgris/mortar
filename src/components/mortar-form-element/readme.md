@@ -31,6 +31,7 @@ include: true
 
  - [mortar-checkbox](../mortar-checkbox)
  - [mortar-datepicker](../mortar-datepicker)
+ - [mortar-datepicker-calendar](../mortar-datepicker-calendar)
  - [mortar-dropdown](../mortar-dropdown)
  - [mortar-file-upload](../mortar-file-upload)
  - [mortar-input](../mortar-input)
@@ -45,6 +46,7 @@ include: true
 graph TD;
   mortar-checkbox --> mortar-form-element
   mortar-datepicker --> mortar-form-element
+  mortar-datepicker-calendar --> mortar-form-element
   mortar-dropdown --> mortar-form-element
   mortar-file-upload --> mortar-form-element
   mortar-input --> mortar-form-element

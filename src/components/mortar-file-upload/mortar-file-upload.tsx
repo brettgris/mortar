@@ -14,7 +14,7 @@ export class MortarFileUpload implements ComponentInterface {
   @Prop() text = '';
   @Prop() descriptor = '';
   @Prop() multiple = true;
-  @Prop() required = true;
+  @Prop() required = false;
 
   labelClassName = () => {
     return classnames('input-label', {
@@ -33,7 +33,7 @@ export class MortarFileUpload implements ComponentInterface {
         error={this.error}
         name={this.name}
       >
-        <input id={this.name} type="file" multiple={this.multiple} required={this.required} />
+        <input id={this.name} type="file" multiple={this.multiple} required={this.required} aria-required={this.required} />
         <label htmlFor={this.name} class={this.labelClassName()}>
             <span class="message"><mortar-icon kind="upload"></mortar-icon>{this.text}</span>
             {this.descriptor && <span class="descriptor">{this.descriptor}</span>}

@@ -8,7 +8,7 @@ export class MortarRadioItem {
     @Prop() label = '';
     @Prop() value = '';
     @Prop() disabled = false;
-    @Prop() required = true;
+    @Prop() required = false;
     @Prop() group = '';
     @Prop() name = '';
     @Prop() checked = false;
@@ -28,9 +28,10 @@ export class MortarRadioItem {
                     id={this.name} 
                     class={this.className()} 
                     name={this.group} 
-                    disabled={this.disabled === true} 
-                    required={this.required === true}
-                    checked={this.checked === true}
+                    disabled={this.disabled} 
+                    required={this.required}
+                    aria-required={this.required}
+                    checked={this.checked}
                     value={this.value}
                 />
                 <label htmlFor={this.name}>

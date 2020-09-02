@@ -7,6 +7,8 @@ import { icons } from './selection.json';
 })
 export class MortarIllustration implements ComponentInterface {
   @Prop() kind = '';
+  @Prop() label = '';
+  @Prop() arialabel = '';
 
   renderChildren(length) {
     const arr = Array.apply(null, Array(length));
@@ -21,11 +23,20 @@ export class MortarIllustration implements ComponentInterface {
       <Host>
         {
           length && length <= 1 && 
-            <i class={`storyillustration ${this.kind}StoryIllustration`}></i>
+            <i class={`storyillustration ${this.kind}StoryIllustration`} aria-label={this.arialabel}>
+              {this.label &&
+                <span class="screen-reader-only">{this.label}</span>
+              }
+            </i>
         }
         {
           length && length > 1 &&
-            <i class={`storyillustration ${this.kind}StoryIllustration`}>{this.renderChildren(length)}</i>
+            <i class={`storyillustration ${this.kind}StoryIllustration`} aria-label={this.arialabel}>
+              {this.renderChildren(length)}
+              {this.label &&
+                <span class="screen-reader-only">{this.label}</span>
+              }
+            </i>
         }
       </Host>
     );

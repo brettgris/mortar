@@ -23,12 +23,11 @@ include: true
 | --------------- | --------------- | ----------- | --------- | ------- |
 | `checked`       | `checked`       |             | `boolean` | `false` |
 | `disabled`      | `disabled`      |             | `boolean` | `false` |
-| `group`         | `group`         |             | `string`  | `''`    |
 | `haserror`      | `haserror`      |             | `boolean` | `false` |
 | `indeterminate` | `indeterminate` |             | `boolean` | `false` |
 | `label`         | `label`         |             | `string`  | `''`    |
 | `name`          | `name`          |             | `string`  | `''`    |
-| `required`      | `required`      |             | `boolean` | `true`  |
+| `required`      | `required`      |             | `boolean` | `false` |
 | `value`         | `value`         |             | `string`  | `''`    |
 
 

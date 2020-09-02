@@ -17,19 +17,25 @@ include: true
 
 | Property           | Attribute           | Description | Type                                              | Default                                                                                                                      |
 | ------------------ | ------------------- | ----------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `current`          | --                  |             | `Date`                                            | `undefined`                                                                                                                  |
+| `clearlabel`       | `clearlabel`        |             | `string`                                          | `"Clear"`                                                                                                                    |
+| `current`          | `current`           |             | `Date \| string`                                  | `undefined`                                                                                                                  |
 | `customClass`      | --                  |             | `(_year: any, _month: any, _date: any) => string` | `(_year, _month, _date) => ''`                                                                                               |
 | `days`             | --                  |             | `string[]`                                        | `['S', 'M', 'T', 'W', 'R', 'F', 'S']`                                                                                        |
 | `embed`            | `embed`             |             | `boolean`                                         | `false`                                                                                                                      |
-| `focused`          | `focused`           |             | `boolean`                                         | `false`                                                                                                                      |
+| `error`            | `error`             |             | `string`                                          | `''`                                                                                                                         |
+| `haserror`         | `haserror`          |             | `boolean`                                         | `false`                                                                                                                      |
 | `header`           | `header`            |             | `boolean`                                         | `true`                                                                                                                       |
 | `highlight`        | `highlight`         |             | `number`                                          | `-1`                                                                                                                         |
-| `maxDate`          | --                  |             | `Date`                                            | `undefined`                                                                                                                  |
-| `minDate`          | --                  |             | `Date`                                            | `undefined`                                                                                                                  |
+| `label`            | `label`             |             | `string`                                          | `''`                                                                                                                         |
+| `max`              | `max`               |             | `Date \| string`                                  | `new Date(2100, 11, 31)`                                                                                                     |
+| `min`              | `min`               |             | `Date \| string`                                  | `new Date(1900, 0, 1)`                                                                                                       |
 | `monthPlaceholder` | `month-placeholder` |             | `string`                                          | `'Month'`                                                                                                                    |
 | `months`           | --                  |             | `string[]`                                        | `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']` |
+| `name`             | `name`              |             | `string`                                          | `'calendar'`                                                                                                                 |
+| `nextlabel`        | `nextlabel`         |             | `string`                                          | `"Next Month"`                                                                                                               |
 | `open`             | `open`              |             | `boolean`                                         | `false`                                                                                                                      |
-| `selected`         | --                  |             | `Date`                                            | `undefined`                                                                                                                  |
+| `previouslabel`    | `previouslabel`     |             | `string`                                          | `"Previous Month"`                                                                                                           |
+| `selected`         | `selected`          |             | `Date \| string`                                  | `undefined`                                                                                                                  |
 | `yearPlaceholder`  | `year-placeholder`  |             | `string`                                          | `'Year'`                                                                                                                     |
 
 
@@ -53,6 +59,7 @@ include: true
 ### Depends on
 
 - [mortar-dropdown-item](../mortar-dropdown-item)
+- [mortar-form-element](../mortar-form-element)
 - [mortar-dropdown](../mortar-dropdown)
 - [mortar-icon](../mortar-icon)
 
@@ -60,6 +67,7 @@ include: true
 ```mermaid
 graph TD;
   mortar-datepicker-calendar --> mortar-dropdown-item
+  mortar-datepicker-calendar --> mortar-form-element
   mortar-datepicker-calendar --> mortar-dropdown
   mortar-datepicker-calendar --> mortar-icon
   mortar-dropdown --> mortar-form-element

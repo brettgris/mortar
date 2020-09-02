@@ -15,10 +15,12 @@ include: true
 | -------------- | -------------- | ----------- | ---------------------------------------------------------------------------------------------------- | ----------- |
 | `elementclass` | `elementclass` |             | `string`                                                                                             | `''`        |
 | `inputmode`    | `inputmode`    |             | `string`                                                                                             | `'text'`    |
+| `inputtype`    | `inputtype`    |             | `string`                                                                                             | `'text'`    |
 | `name`         | `name`         |             | `string`                                                                                             | `'input'`   |
 | `options`      | --             |             | `{ mask: String[]; pipe: Function; guide: Boolean; keepCharPositions: Boolean; showMask: Boolean; }` | `undefined` |
 | `pattern`      | `pattern`      |             | `string`                                                                                             | `''`        |
 | `placeholder`  | `placeholder`  |             | `string`                                                                                             | `''`        |
+| `required`     | `required`     |             | `boolean`                                                                                            | `false`     |
 | `type`         | `type`         |             | `string`                                                                                             | `''`        |
 | `value`        | `value`        |             | `string`                                                                                             | `''`        |
 

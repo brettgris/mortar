@@ -25,11 +25,18 @@ export class MortarDatepicker {
   @Prop() value: Date | string;
   @Prop() valueString = '';
   @Prop() mask = 'Date';
-  @Prop() required = true;
+  @Prop() required = false;
   @Prop() disabled = false;
   @Prop() placeholder = "mm/dd/yyyy";
-  @Prop() name = '';
+  @Prop() name = 'datepicker';
   @Prop() header = true;
+  @Prop() togglelabel = (date) => {
+    if (!date) {
+      return 'Choose Date';
+    } else {
+      return `Choose Date, Selected Date is ${new Date(date).toDateString()}`
+    }
+  };
   @Event() selectDate: EventEmitter<Date>;
   @Event() clearDate: EventEmitter<void>;
   @Event() inputChange: EventEmitter<Date>;
@@ -143,7 +150,7 @@ export class MortarDatepicker {
   render() {
     return (
       <mortar-form-element
-        label={this.label}
+        legend={this.label}
         haserror={this.haserror}
         error={this.error}
         elementclass="datepicker"
@@ -160,9 +167,10 @@ export class MortarDatepicker {
               pattern="[0-9]*"
               inputmode="numeric"
               name={this.name}
+              required={this.required}
             ></masked-input>
             <button class="datepicker-toggle" onClick={this.handleOpen} ref={this.handleToggleRef}>
-              <mortar-icon kind="calendar"></mortar-icon>
+              <mortar-icon kind="calendar" label={this.togglelabel(this.value)}></mortar-icon>
             </button>
           </div>
           <mortar-datepicker-calendar
@@ -177,6 +185,7 @@ export class MortarDatepicker {
             selected={this.value}
             open={this.open}
             header={this.header}
+            name={`${this.name}-calendar`}
           ></mortar-datepicker-calendar>
         </div>
       </mortar-form-element>

@@ -8,6 +8,7 @@ export class MortarCheckbox {
   @Prop() label = '';
   @Prop() haserror = false;
   @Prop() error = '';
+  @Prop() name = '';
 
   render() {
     return (
@@ -16,6 +17,7 @@ export class MortarCheckbox {
         haserror={this.haserror}
         error={this.error}
         elementclass="checkbox"
+        name={this.name}
       >
         <slot></slot>
       </mortar-form-element>

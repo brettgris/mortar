@@ -9,8 +9,10 @@ import types from './types';
 export class MaskedInput {
   @Prop() placeholder = '';
   @Prop() elementclass = '';
+  @Prop() required = false;
   @Prop() value = '';
   @Prop() type = '';
+  @Prop() inputtype = 'text';
   @Prop() inputmode = 'text';
   @Prop() name = 'input';
   @Prop() pattern = '';
@@ -41,10 +43,12 @@ export class MaskedInput {
   createTextMask(options) {
     const inputElement = this.root.querySelector('input');
     inputElement.value = this.value;
-    this.mask = textMask({
-      inputElement,
-      ...options
-    });
+    if (this.inputtype === 'text') {
+      this.mask = textMask({
+        inputElement,
+        ...options
+      });
+    }
   }
 
   @Watch('value')
@@ -73,12 +77,14 @@ export class MaskedInput {
         <input 
           class={this.elementclass} 
           placeholder={this.placeholder} 
-          type="text" 
+          type={this.inputtype}
           onBlur={this.handleBlur}
           onInput={this.handleInput}
           pattern={this.pattern}
           inputmode={this.inputmode}
           id={this.name}
+          required={this.required}
+          aria-required={this.required}
         />
       </Host>
       

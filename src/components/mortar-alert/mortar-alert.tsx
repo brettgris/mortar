@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Watch, Element } from '@stencil/core';
+import { Component, Host, h, Prop, Watch, Element, Listen } from '@stencil/core';
 import classnames from 'classnames';
 import focusLock from 'dom-focus-lock';
 
@@ -13,12 +13,13 @@ export class MortarAlert {
   @Prop() btnlabel = 'Close Window';
   @Prop() btnkind = 'text';
   @Prop() overlay = true;
+  @Prop() focusEl: HTMLElement = null;
 
   @Element() root: HTMLElement;
 
   className = () => {
     return classnames('alert', `alert-${this.kind}`, {
-      'show': this.open === true
+      'show': this.open
     })
   }
 
@@ -28,10 +29,14 @@ export class MortarAlert {
 
     if (!openVal) {
       focusLock.off(el);
+      setTimeout(function() {
+        if (this.focusEl) this.focusEl.focus();
+      }, 10);
     } else {
+      this.focusEl = document.activeElement as HTMLElement;
       focusLock.on(el);
 
-      const btn:HTMLElement = el.querySelector('.alert-close');
+      const btn: HTMLElement = el.querySelector('.alert-close');
       setTimeout(function() {
         if (btn) btn.focus();
       }, 10);
@@ -53,13 +58,23 @@ export class MortarAlert {
 
   overlayClassName = () => {
     return classnames('alert-overlay', {
-      'show': this.open === true && this.overlay === true
+      'show': this.open && this.overlay
     });
   }
 
   handleClose = () => {
     this.open = false;
   };
+
+  @Listen('keydown', { target: 'document'})
+  handleKeySelect(evt) {
+    if (this.open) {
+      if (evt.keyCode === 27) {
+        evt.preventDefault();
+        this.open = false;
+      }
+    }
+  }
 
   render() {
     return (

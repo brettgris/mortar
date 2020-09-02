@@ -27,7 +27,7 @@ include: true
 | `label`    | `label`    |             | `string`  | `''`    |
 | `light`    | `light`    |             | `boolean` | `true`  |
 | `name`     | `name`     |             | `string`  | `''`    |
-| `required` | `required` |             | `boolean` | `true`  |
+| `required` | `required` |             | `boolean` | `false` |
 | `value`    | `value`    |             | `string`  | `''`    |
 
 

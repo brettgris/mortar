@@ -8,6 +8,7 @@ export class MortarRadioToggle {
   @Prop() label = '';
   @Prop() error = '';
   @Prop() haserror = false;
+  @Prop() name = '';
 
   render() {
     return (
@@ -16,6 +17,7 @@ export class MortarRadioToggle {
         error={this.error}
         haserror={this.haserror}
         elementclass="radio-button-group"
+        name={this.name}
       >
         <slot></slot>
       </mortar-form-element>

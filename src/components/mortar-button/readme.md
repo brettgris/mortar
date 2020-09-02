@@ -80,6 +80,7 @@ You can also control if the button is disabled.
 
 | Property       | Attribute      | Description | Type      | Default     |
 | -------------- | -------------- | ----------- | --------- | ----------- |
+| `buttontype`   | `buttontype`   |             | `string`  | `'button'`  |
 | `disabled`     | `disabled`     |             | `boolean` | `false`     |
 | `elementclass` | `elementclass` |             | `string`  | `''`        |
 | `href`         | `href`         |             | `string`  | `''`        |

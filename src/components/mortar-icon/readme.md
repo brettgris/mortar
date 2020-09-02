@@ -20,6 +20,7 @@ include: true
 | `arialabel` | `arialabel` |             | `string` | `""`    |
 | `class`     | `class`     |             | `string` | `""`    |
 | `kind`      | `kind`      |             | `string` | `""`    |
+| `label`     | `label`     |             | `string` | `''`    |
 
 
 ## Dependencies

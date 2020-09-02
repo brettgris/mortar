@@ -13,13 +13,13 @@ const Header = () => {
                 <div className="header-wrapper">
                     <div className="menu-btn">
                         <button onClick={() => setOpen(!open)}>
-                            <mortar-icon kind={(open) ? 'close' : 'hamburger'}></mortar-icon>
+                            <mortar-icon kind={(open) ? 'close' : 'hamburger'} label={(open) ? 'Open Menu' : 'Close Menu'}></mortar-icon>
                         </button>
                     </div>
                     
                     <div className="logo">
                         <Link to="/">
-                            <mortar-illustration kind="apartmentsBlack"></mortar-illustration>
+                            <mortar-illustration kind="apartmentsBlack" label="Apartments Web Components"></mortar-illustration>
                         </Link>
                     </div>
                     

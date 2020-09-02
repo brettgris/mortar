@@ -18,6 +18,8 @@ export class MortarDropdown {
   @Prop() focused = false;
   @Prop() highlight = -1;
   @Prop() value = '';
+  @Prop() required = false;
+  @Prop() name = 'dropdown';
   @Event() itemSelect: EventEmitter<Object>;
 
   @Element() el: HTMLElement;
@@ -26,16 +28,16 @@ export class MortarDropdown {
 
   className = () => {
     return classnames('dropdown-outer', `${this.size}`, {
-      'is-open': this.open === true,
-      'is-focused': this.focused === true,
-      'is-disabled': this.disabled === true,
-      'has-error': this.haserror === true
+      'is-open': this.open,
+      'is-focused': this.focused,
+      'is-disabled': this.disabled,
+      'has-error': this.haserror
     });
   }
 
   dropClassName = () => {
     return classnames('dropdown-list','dropdown-list-dropdown', {
-      'is-active': this.open === true
+      'is-active': this.open
     });
   }
 
@@ -78,7 +80,7 @@ export class MortarDropdown {
   }
 
   handleItemSelect = (option: MortarDropdownItem) => { 
-    if (option.disabled !== true) {
+   if (option.disabled !== null) {
       const c = this.getCurrent();
       if (c) {
         c.selected = false;
@@ -92,7 +94,7 @@ export class MortarDropdown {
 
   @Listen('click', { target: 'document' })
   handleOutsideClick(evt) {
-    if (this.open === true && !(evt.target === this.dropdownEl || this.dropdownEl.contains(evt.target))) {
+    if (this.open && !(evt.target === this.dropdownEl || this.dropdownEl.contains(evt.target))) {
       this.open = false;
     }
   }
@@ -107,7 +109,7 @@ export class MortarDropdown {
 
   loadOptions = () => {
     this.options = Array.prototype.slice.call(this.el.querySelectorAll('mortar-dropdown-item'));
-    const current = this.options.find((o) => o.selected === true);
+    const current = this.options.find((o) => o.selected);
     if (current) {
       this.value = current.value;
     }
@@ -160,7 +162,7 @@ export class MortarDropdown {
     this.highlight = -1;
   }
 
-  setHighlight = (next) => {
+  changeHighlight = (next) => {
     const arr = this.getAvailable();
     
     if (next) {
@@ -170,15 +172,11 @@ export class MortarDropdown {
           const i = arr.find(o => o.o.value === this.value);
           k = i.k;
         }
-
-        this.highlight = k;
-        this.options[k].highlighted = true;
+        this.setHighlight(k);
       } else {
-        this.options[this.highlight].highlighted = false;
         const n = arr.find((v) => v.k > this.highlight);
-        
-        this.highlight = (n) ? n.k : arr[0].k;
-        this.options[this.highlight].highlighted = true;
+        const v = (n) ? n.k : arr[0].k;
+        this.setHighlight(v);
       }
     } else {
       const rArr = arr.reverse();
@@ -189,20 +187,25 @@ export class MortarDropdown {
           const i = rArr.find(o => o.o.value === this.value);
           k = i.k;
         }
-
-        this.highlight = k;
-        this.options[k].highlighted = true;
+        this.setHighlight(k);
       } else {
-        this.options[this.highlight].highlighted = false;
         const n = rArr.find((v) => v.k < this.highlight);
-        
-        this.highlight = (n) ? n.k : rArr[0].k;
-        this.options[this.highlight].highlighted = true;
+        const v = (n) ? n.k : rArr[0].k;
+        this.setHighlight(v);
       }
     }
+  }
 
+  setHighlight = (v) => {
     if (this.highlight > -1) {
-      this.options[this.highlight].getEl().then(v => {
+      this.options[this.highlight].highlighted = false;
+    }
+   
+    this.highlight = v;
+
+    if (v > -1) {
+      this.options[v].highlighted = true;
+      this.options[v].getEl().then(v => {
         const listEl:HTMLElement = this.el.querySelector('.dropdown-list[role="listbox"]');
         listEl.scrollTop = v.offsetTop;
       });  
@@ -221,14 +224,27 @@ export class MortarDropdown {
       //UP
       if (evt.keyCode === 38) {
         evt.preventDefault();
-        this.setHighlight(false);
-        
+        this.changeHighlight(false);
       }
 
       //DOWN 
       if (evt.keyCode === 40) {
         evt.preventDefault();
-        this.setHighlight(true);
+        this.changeHighlight(true);
+      }
+
+      //HOME
+      if (evt.keyCode === 36) {
+        evt.preventDefault();
+        const arr = this.getAvailable();
+        this.setHighlight(arr[0].k);
+      }
+
+      //END
+      if (evt.keyCode === 35) {
+        evt.preventDefault();
+        const arr = this.getAvailable();
+        this.setHighlight(arr[arr.length - 1].k);
       }
 
       //SPACE OR ENTER SELECT
@@ -238,6 +254,7 @@ export class MortarDropdown {
         this.open = false;
       }
 
+      //ESC
       if (evt.keyCode === 27) {
         evt.preventDefault();
         this.open = false;
@@ -261,6 +278,7 @@ export class MortarDropdown {
         error={this.error}
         elementclass="dropdown"
         ref={this.handleDropdownRef}
+        name={this.name}
       >
         <div class={this.className()}  
             tabindex="0" 
@@ -269,10 +287,12 @@ export class MortarDropdown {
             aria-expanded={this.open}
             onFocus={this.handleFocus} 
             onBlur={this.handleBlur}
+            aria-required={this.required}
+            id={this.name}
         >
           <div class="dropdown-inner" onClick={this.handleClick} >
             <div class="dropdown-list dropdown-list-single">
-              <div class={this.displayClassName()} aria-selected="true">
+              <div class={this.displayClassName()}>
                 { (current) ? current.label : this.placeholder }
               </div>
             </div>
@@ -286,22 +306,4 @@ export class MortarDropdown {
       </mortar-form-element>
     );
   }
-
 }
-
-
-/*
-{
-                this.options.map((option, key) => {
-                  return (
-                    <mortar-dropdown-item 
-                      highlighted={this.highlight === key} 
-                      selected={(this.highlight > -1) ? (this.highlight === key) : (this.value && this.value.value === option.value)}
-                      disabled={option[this.optionsKeys['disabled']]}
-                      label={option[this.optionsKeys['label']]}
-                      onClick={() => this.handleItemSelect(option)}
-                    ></mortar-dropdown-item>
-                  )
-                })
-              }
-              */

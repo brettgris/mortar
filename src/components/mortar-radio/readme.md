@@ -18,11 +18,12 @@ include: true
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default |
-| ---------- | ---------- | ----------- | --------- | ------- |
-| `error`    | `error`    |             | `string`  | `''`    |
-| `haserror` | `haserror` |             | `boolean` | `false` |
-| `label`    | `label`    |             | `string`  | `''`    |
+| Property   | Attribute  | Description | Type      | Default   |
+| ---------- | ---------- | ----------- | --------- | --------- |
+| `error`    | `error`    |             | `string`  | `''`      |
+| `haserror` | `haserror` |             | `boolean` | `false`   |
+| `label`    | `label`    |             | `string`  | `''`      |
+| `name`     | `name`     |             | `string`  | `'radio'` |
 
 
 ## Dependencies

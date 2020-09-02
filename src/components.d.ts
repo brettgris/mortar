@@ -9,6 +9,7 @@ export namespace Components {
     interface MaskedInput {
         "elementclass": string;
         "inputmode": string;
+        "inputtype": string;
         "name": string;
         "options": {
             mask: Array<String>;
@@ -19,18 +20,21 @@ export namespace Components {
         };
         "pattern": string;
         "placeholder": string;
+        "required": boolean;
         "type": string;
         "value": string;
     }
     interface MortarAlert {
         "btnkind": string;
         "btnlabel": string;
+        "focusEl": HTMLElement;
         "headline": string;
         "kind": string;
         "open": boolean;
         "overlay": boolean;
     }
     interface MortarButton {
+        "buttontype": string;
         "disabled": boolean;
         "elementclass": string;
         "href": string;
@@ -42,11 +46,11 @@ export namespace Components {
         "error": string;
         "haserror": boolean;
         "label": string;
+        "name": string;
     }
     interface MortarCheckboxItem {
         "checked": boolean;
         "disabled": boolean;
-        "group": string;
         "haserror": boolean;
         "indeterminate": boolean;
         "label": string;
@@ -68,22 +72,29 @@ export namespace Components {
         "open": boolean;
         "placeholder": string;
         "required": boolean;
+        "togglelabel": (date: any) => string;
         "value": Date | string;
         "valueString": string;
     }
     interface MortarDatepickerCalendar {
+        "clearlabel": string;
         "current": Date | string;
         "customClass": (_year: any, _month: any, _date: any) => string;
         "days": string[];
         "embed": boolean;
-        "focused": boolean;
+        "error": string;
+        "haserror": boolean;
         "header": boolean;
         "highlight": number;
+        "label": string;
         "max": Date | string;
         "min": Date | string;
         "monthPlaceholder": string;
         "months": string[];
+        "name": string;
+        "nextlabel": string;
         "open": boolean;
+        "previouslabel": string;
         "selected": Date | string;
         "yearPlaceholder": string;
     }
@@ -95,8 +106,10 @@ export namespace Components {
         "help": string;
         "highlight": number;
         "label": string;
+        "name": string;
         "open": boolean;
         "placeholder": string;
+        "required": boolean;
         "size": string;
         "value": string;
     }
@@ -134,9 +147,12 @@ export namespace Components {
         "arialabel": string;
         "class": string;
         "kind": string;
+        "label": string;
     }
     interface MortarIllustration {
+        "arialabel": string;
         "kind": string;
+        "label": string;
     }
     interface MortarInput {
         "disabled": boolean;
@@ -149,6 +165,7 @@ export namespace Components {
         "name": string;
         "pattern": string;
         "placeholder": string;
+        "required": boolean;
         "size": string;
         "type": string;
         "value": string;
@@ -158,12 +175,16 @@ export namespace Components {
         "open": boolean;
     }
     interface MortarModal {
+        "closebtnlabel": string;
+        "focusEl": HTMLElement;
+        "name": string;
         "open": boolean;
     }
     interface MortarRadio {
         "error": string;
         "haserror": boolean;
         "label": string;
+        "name": string;
     }
     interface MortarRadioItem {
         "checked": boolean;
@@ -180,6 +201,7 @@ export namespace Components {
         "error": string;
         "haserror": boolean;
         "label": string;
+        "name": string;
     }
     interface MortarRadioToggleItem {
         "checked": boolean;
@@ -413,6 +435,7 @@ declare namespace LocalJSX {
     interface MaskedInput {
         "elementclass"?: string;
         "inputmode"?: string;
+        "inputtype"?: string;
         "name"?: string;
         "onInputChange"?: (event: CustomEvent<string>) => void;
         "onMaskedBlur"?: (event: CustomEvent<string>) => void;
@@ -425,18 +448,21 @@ declare namespace LocalJSX {
         };
         "pattern"?: string;
         "placeholder"?: string;
+        "required"?: boolean;
         "type"?: string;
         "value"?: string;
     }
     interface MortarAlert {
         "btnkind"?: string;
         "btnlabel"?: string;
+        "focusEl"?: HTMLElement;
         "headline"?: string;
         "kind"?: string;
         "open"?: boolean;
         "overlay"?: boolean;
     }
     interface MortarButton {
+        "buttontype"?: string;
         "disabled"?: boolean;
         "elementclass"?: string;
         "href"?: string;
@@ -448,11 +474,11 @@ declare namespace LocalJSX {
         "error"?: string;
         "haserror"?: boolean;
         "label"?: string;
+        "name"?: string;
     }
     interface MortarCheckboxItem {
         "checked"?: boolean;
         "disabled"?: boolean;
-        "group"?: string;
         "haserror"?: boolean;
         "indeterminate"?: boolean;
         "label"?: string;
@@ -478,27 +504,34 @@ declare namespace LocalJSX {
         "open"?: boolean;
         "placeholder"?: string;
         "required"?: boolean;
+        "togglelabel"?: (date: any) => string;
         "value"?: Date | string;
         "valueString"?: string;
     }
     interface MortarDatepickerCalendar {
+        "clearlabel"?: string;
         "current"?: Date | string;
         "customClass"?: (_year: any, _month: any, _date: any) => string;
         "days"?: string[];
         "embed"?: boolean;
-        "focused"?: boolean;
+        "error"?: string;
+        "haserror"?: boolean;
         "header"?: boolean;
         "highlight"?: number;
+        "label"?: string;
         "max"?: Date | string;
         "min"?: Date | string;
         "monthPlaceholder"?: string;
         "months"?: string[];
+        "name"?: string;
+        "nextlabel"?: string;
         "onClearDate"?: (event: CustomEvent<void>) => void;
         "onClickDate"?: (event: CustomEvent<Date>) => void;
         "onKeyboardExit"?: (event: CustomEvent<void>) => void;
         "onKeyboardSelect"?: (event: CustomEvent<KeyboardEvent>) => void;
         "onSelectDate"?: (event: CustomEvent<Date>) => void;
         "open"?: boolean;
+        "previouslabel"?: string;
         "selected"?: Date | string;
         "yearPlaceholder"?: string;
     }
@@ -510,9 +543,11 @@ declare namespace LocalJSX {
         "help"?: string;
         "highlight"?: number;
         "label"?: string;
+        "name"?: string;
         "onItemSelect"?: (event: CustomEvent<Object>) => void;
         "open"?: boolean;
         "placeholder"?: string;
+        "required"?: boolean;
         "size"?: string;
         "value"?: string;
     }
@@ -549,9 +584,12 @@ declare namespace LocalJSX {
         "arialabel"?: string;
         "class"?: string;
         "kind"?: string;
+        "label"?: string;
     }
     interface MortarIllustration {
+        "arialabel"?: string;
         "kind"?: string;
+        "label"?: string;
     }
     interface MortarInput {
         "disabled"?: boolean;
@@ -564,6 +602,7 @@ declare namespace LocalJSX {
         "name"?: string;
         "pattern"?: string;
         "placeholder"?: string;
+        "required"?: boolean;
         "size"?: string;
         "type"?: string;
         "value"?: string;
@@ -573,12 +612,16 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface MortarModal {
+        "closebtnlabel"?: string;
+        "focusEl"?: HTMLElement;
+        "name"?: string;
         "open"?: boolean;
     }
     interface MortarRadio {
         "error"?: string;
         "haserror"?: boolean;
         "label"?: string;
+        "name"?: string;
     }
     interface MortarRadioItem {
         "checked"?: boolean;
@@ -595,6 +638,7 @@ declare namespace LocalJSX {
         "error"?: string;
         "haserror"?: boolean;
         "label"?: string;
+        "name"?: string;
     }
     interface MortarRadioToggleItem {
         "checked"?: boolean;

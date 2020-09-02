@@ -26,14 +26,15 @@ include: true
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default          |
-| ---------- | ---------- | ----------- | --------- | ---------------- |
-| `btnkind`  | `btnkind`  |             | `string`  | `'text'`         |
-| `btnlabel` | `btnlabel` |             | `string`  | `'Close Window'` |
-| `headline` | `headline` |             | `string`  | `''`             |
-| `kind`     | `kind`     |             | `string`  | `'success'`      |
-| `open`     | `open`     |             | `boolean` | `false`          |
-| `overlay`  | `overlay`  |             | `boolean` | `true`           |
+| Property   | Attribute  | Description | Type          | Default          |
+| ---------- | ---------- | ----------- | ------------- | ---------------- |
+| `btnkind`  | `btnkind`  |             | `string`      | `'text'`         |
+| `btnlabel` | `btnlabel` |             | `string`      | `'Close Window'` |
+| `focusEl`  | --         |             | `HTMLElement` | `null`           |
+| `headline` | `headline` |             | `string`      | `''`             |
+| `kind`     | `kind`     |             | `string`      | `'success'`      |
+| `open`     | `open`     |             | `boolean`     | `false`          |
+| `overlay`  | `overlay`  |             | `boolean`     | `true`           |
 
 
 ## Dependencies

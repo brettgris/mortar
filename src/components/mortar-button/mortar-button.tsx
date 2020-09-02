@@ -11,10 +11,11 @@ export class MortarButton {
   @Prop() href = '';
   @Prop() target = '_self';
   @Prop() elementclass = '';
+  @Prop() buttontype = 'button';
 
   className() {
     return classnames('btn', `btn-${this.kind}`, `btn-${this.size}`, this.elementclass, {
-      'disabled': this.disabled === true
+      'disabled': this.disabled
     })
   }
 
@@ -22,7 +23,7 @@ export class MortarButton {
     return (
       <Host>
         {!this.href && 
-          <button class={this.className()} disabled={this.disabled === true}>
+          <button class={this.className()} disabled={this.disabled} type={this.buttontype}>
             <slot />
           </button>
         }

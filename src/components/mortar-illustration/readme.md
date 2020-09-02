@@ -15,9 +15,11 @@ include: true
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default |
-| -------- | --------- | ----------- | -------- | ------- |
-| `kind`   | `kind`    |             | `string` | `''`    |
+| Property    | Attribute   | Description | Type     | Default |
+| ----------- | ----------- | ----------- | -------- | ------- |
+| `arialabel` | `arialabel` |             | `string` | `''`    |
+| `kind`      | `kind`      |             | `string` | `''`    |
+| `label`     | `label`     |             | `string` | `''`    |
 
 
 ----------------------------------------------

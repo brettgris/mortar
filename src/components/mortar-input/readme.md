@@ -26,6 +26,7 @@ include: true
 | `name`        | `name`        |             | `string`  | `'input'` |
 | `pattern`     | `pattern`     |             | `string`  | `''`      |
 | `placeholder` | `placeholder` |             | `string`  | `''`      |
+| `required`    | `required`    |             | `boolean` | `false`   |
 | `size`        | `size`        |             | `string`  | `'md'`    |
 | `type`        | `type`        |             | `string`  | `"text"`  |
 | `value`       | `value`       |             | `string`  | `''`      |

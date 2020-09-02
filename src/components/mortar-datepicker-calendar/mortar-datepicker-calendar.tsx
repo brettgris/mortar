@@ -7,16 +7,22 @@ import focusLock from 'dom-focus-lock';
   scoped: false,
 })
 export class MortarDatepicker {
+    @Prop() label = '';
+    @Prop() error = '';
+    @Prop() haserror = false;
+    @Prop() name = 'calendar';
     @Prop() days = ['S', 'M', 'T', 'W', 'R', 'F', 'S'];
     @Prop() months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     @Prop() monthPlaceholder = 'Month';
     @Prop() yearPlaceholder = 'Year';
+    @Prop() nextlabel = "Next Month";
+    @Prop() previouslabel = "Previous Month";
+    @Prop() clearlabel = "Clear";
     @Prop() selected: Date | string;
     @Prop() current: Date | string;
     @Prop() min: Date | string = new Date(1900, 0, 1);
     @Prop() max: Date | string = new Date(2100, 11, 31);
     @Prop() open = false;
-    @Prop() focused = false;
     @Prop() highlight = -1;
     @Prop() header = true;
     @Prop() embed = false;
@@ -29,6 +35,9 @@ export class MortarDatepicker {
 
     @Element() root: HTMLElement;
 
+    private timeout?;
+    private calendarEl: HTMLElement;
+
     @Watch('selected')
     handleSelected(val: Date) {
         if (!val) {
@@ -40,21 +49,15 @@ export class MortarDatepicker {
     handleClose(openVal: boolean) {
         if (!openVal) {
             this.current = null;
-            this.focused = false;
             focusLock.off(this.root);
         } else {
             focusLock.on(this.root);
-            const r:HTMLElement = this.root;
-            setTimeout(function() {
-                const el:HTMLElement = r.querySelector('.datepicker-body');
-                el.focus();
-            }, 1);
+            this.focusHighlight();
         }
     }
 
-    @Watch('focused')
-    handleFocused() {
-        this.highlight = -1;
+    componentWillLoad() {
+        this.currentHighlight();
     }
 
     /*** 
@@ -126,9 +129,13 @@ export class MortarDatepicker {
                 c = max;
             }
         }
-        
+        const l = 40 - new Date(c.getFullYear(), c.getMonth(), 40).getDate();
         this.current = c;
-        this.highlight = highlight;
+        if (highlight > -1) {
+            this.highlight = (highlight < l) ? highlight : l;
+        } else {
+            this.currentHighlight();
+        }
     }  
 
     //Next & Previous Buttons, change current by val
@@ -199,6 +206,7 @@ export class MortarDatepicker {
         this.selected = s;
         this.selectDate.emit(s);
         this.clickDate.emit(s);
+        this.highlight = d;
     }
 
     //Keyboard Select - Doesn't fire click event (used to close)
@@ -210,43 +218,76 @@ export class MortarDatepicker {
     }
 
     /***
-     * Focus Trap
-     */
-    handleCalendarFocus = () => {
-        this.focused = true;
-    }
-
-    handleCalendarBlur = () => {
-        this.focused = false;
-    }
-
-    /***
      * Keyboard Navigate
      */
     @Listen('keydown', { target: 'document'})
     handleKeySelect(evt) {
-        if (this.open && this.focused) {
+        const isFocused = this.calendarEl.contains(document.activeElement);
+        if (this.open && isFocused) {
+            const d = this.getCurrentDate();
             switch(evt.keyCode) {
+                //left
                 case 37: 
                     this.changeHighlight(-1);
                     evt.preventDefault();
                     break;
+                //up
                 case 38:
                     this.changeHighlight(-7);
                     evt.preventDefault();
                     break;
+                //right
                 case 39:
                     this.changeHighlight(1);
                     evt.preventDefault();
                     break;
+                //down
                 case 40: 
                     this.changeHighlight(7);
                     evt.preventDefault();
                     break;
+                //HOME
+                case 36:
+                    this.changeWeekDay(0);
+                    evt.preventDefault();
+                    break;
+                //END
+                case 35:
+                    this.changeWeekDay(6);
+                    evt.preventDefault();
+                    break;
+                //PAGE DOWN
+                case 34:
+                    if (evt.shiftKey) {
+                        this.changeCurrent(d.getMonth(), d.getFullYear() + 1, this.highlight);
+                    } else {
+                        const m = d.getMonth();
+                        const nm = (m !== 11) ? m + 1 : 0;
+                        const ny = (m !== 11) ? d.getFullYear() : d.getFullYear() + 1;
+                        this.changeCurrent(nm, ny, this.highlight);
+                    }
+                    this.focusHighlight();
+                    evt.preventDefault();
+                    break;
+                //PAGE UP
+                case 33:
+                    if (evt.shiftKey) {
+                        this.changeCurrent(d.getMonth(), d.getFullYear() - 1, this.highlight);
+                    } else {
+                        const m = d.getMonth();
+                        const nm = (m !== 0) ? m - 1 : 11;
+                        const ny = (m !== 0) ? d.getFullYear() : d.getFullYear() - 1;
+                        this.changeCurrent(nm, ny, this.highlight);
+                    }
+                    this.focusHighlight();
+                    evt.preventDefault();
+                    break;
+                // SPACE
                 case 13:
                     this.selectHighlight(evt);
                     evt.preventDefault();
                     break;
+                //ENTER
                 case 32:
                     this.selectHighlight(evt);
                     evt.preventDefault();
@@ -256,6 +297,7 @@ export class MortarDatepicker {
             }
         }
 
+        //ESC closes if dropdown isn't open
         if (this.open && evt.keyCode === 27) {
             const dd = Array.prototype.slice.call(this.root.querySelectorAll('mortar-dropdown'));
             const e = dd.find(v => {
@@ -270,21 +312,24 @@ export class MortarDatepicker {
         } 
     }
 
-    changeHighlight(amt) {
+    currentHighlight = () => {
         const d = this.getCurrentDate();
         const cm = this.getDaysInMonth(d);
-
-        if (this.highlight === -1) {
-            const today = new Date();
-            const sd = new Date(this.selected);
-            if (this.selected && sd.getMonth() === cm.month && sd.getFullYear() === cm.year) {
-                this.highlight = sd.getDate();
-            } else if (today.getMonth() === cm.month && today.getFullYear() === cm.year) {
-                this.highlight = today.getDate();
-            } else {
-                this.highlight = Math.floor(cm.length / 2);
-            }
+        const today = new Date();
+        const sd = new Date(this.selected);
+        
+        if (this.selected && sd.getMonth() === cm.month && sd.getFullYear() === cm.year) {
+            this.highlight = sd.getDate();
+        } else if (today.getMonth() === cm.month && today.getFullYear() === cm.year) {
+            this.highlight = today.getDate();
+        } else {
+            this.highlight = 1;
         }
+    }
+
+    changeHighlight = (amt) => {
+        const d = this.getCurrentDate();
+        const cm = this.getDaysInMonth(d);
 
         this.highlight += amt;
 
@@ -293,6 +338,31 @@ export class MortarDatepicker {
         } else if (this.highlight > cm.length) {
             this.changeCurrent(cm.next.month, cm.next.year, this.highlight - cm.length);
         }
+
+        this.focusHighlight();
+    }
+
+    changeWeekDay = (day) => {
+        const d = this.getCurrentDate();
+
+        const hd = new Date(d.getFullYear(), d.getMonth(), this.highlight);
+        const diff = day - hd.getDay();
+
+        if (diff !== 0) {
+            this.changeHighlight(diff);
+        }
+    }
+    
+    focusHighlight = () => {
+        this.timeout = setTimeout(() => {
+            clearTimeout(this.timeout);
+            const el:HTMLElement = this.calendarEl.querySelector('button[tabIndex="0"]');
+            el.focus();
+        }, 100);
+    }
+
+    handleCalendarRef = (ref) => {
+        this.calendarEl = ref;
     }
 
     selectHighlight(evt) {
@@ -364,25 +434,27 @@ export class MortarDatepicker {
                                 
                                 if(this.isAvailable(cm.year, cm.month, cd)) {
                                     let cn = this.customClass(cm.year, cm.month, cd);
-                                    
+                                    const isSelected = this.isSelected(cm.year, cm.month, cd);
+                                    const isHighlighted = (this.highlight === cd);
+
                                     if (this.isToday(cm.year, cm.month, cd)) {
                                         cn += ' datepicker-today';
                                     }
 
-                                    if (this.isSelected(cm.year, cm.month, cd)) {
+                                    if (isSelected) {
                                         cn += ' datepicker-selected';
                                     }
 
-                                    if (this.highlight === cd && this.focused) {
-                                        cn += ' datepicker-highlight';
-                                    }
-
                                     return (
-                                        <div class={`datepicker-content-item ${cn}`} onClick={() => this.handleClickDay(cm.year, cm.month, cd)}>
+                                        <button class={`datepicker-content-item ${cn}`} 
+                                            onClick={() => this.handleClickDay(cm.year, cm.month, cd)}
+                                            aria-selected={isSelected}
+                                            tabIndex={(isHighlighted) ? 0 : -1}
+                                        >
                                             <div class="datepicker-content-display">
                                                 <span>{cd}</span>
                                             </div>
-                                        </div>
+                                        </button>
                                     );
                                 } else {
                                     return (
@@ -450,7 +522,17 @@ export class MortarDatepicker {
 
     render() {
         if (this.embed) {
-            return <fieldset class="datepicker">{this.renderEl()}</fieldset>;
+            return(
+                <mortar-form-element
+                    legend={this.label}
+                    haserror={this.haserror}
+                    error={this.error}
+                    elementclass="datepicker"
+                    name={this.name}
+                >
+                    {this.renderEl()}
+                </mortar-form-element>
+            )
         } else {
             return this.renderEl();
         }
@@ -463,7 +545,12 @@ export class MortarDatepicker {
         const minallowed = (this.min) ? new Date(cm.previous.year, cm.previous.month, cm.length) > new Date(this.min): true;
         const maxallowed = (this.max) ? new Date(cm.next.year, cm.next.month, 1) < new Date(this.max) : true;
         return (
-            <div class={this.className()}>
+            <div class={this.className()} 
+                role={(!this.embed) ? 'dialog' : ''}
+                aria-modal={!this.embed}
+                id={this.name}
+                aria-labelledby={`${this.name}-label`}
+            >
                 {this.header && 
                     <div class="datepicker-selector">
                         <div class="datepicker-select-dropdown">
@@ -471,6 +558,7 @@ export class MortarDatepicker {
                                 value={this.getMonthValue()}
                                 placeholder={this.monthPlaceholder}
                                 onItemSelect={this.handleChangeCurrentMonth}
+                                name={`${this.name}-month-select`}
                             >
                                 {this.getAvailableMonths()}
                             </mortar-dropdown>
@@ -480,13 +568,14 @@ export class MortarDatepicker {
                                 value={this.getYearValue()}
                                 placeholder={this.yearPlaceholder}
                                 onItemSelect={this.handleChangeCurrentYear}
+                                name={`${this.name}-year-select`}
                             >
                                 {this.getAvailableYears()}
                             </mortar-dropdown>
                         </div>
                         <div class="datepicker-select-clear">
                             <button onClick={this.handleClear}>
-                                <mortar-icon kind="close" arialabel="close"></mortar-icon>
+                                <mortar-icon kind="close" label={this.clearlabel}></mortar-icon>
                             </button>
                         </div>
                     </div>
@@ -496,27 +585,28 @@ export class MortarDatepicker {
 
                         {minallowed &&
                             <button onClick={() => this.handleChangeMonth(-1)}>
-                                <mortar-icon kind="back" arialabel="Previous Month"></mortar-icon>
+                                <mortar-icon kind="back" arialabel="Previous Month" label={this.previouslabel}></mortar-icon>
                             </button>
                         }
                     </div>
                     <div class="datepicker-header-display">
-                        <span>
+                        <span id={`${this.name}-label`}
+                            aria-live="polite"
+                        >
                             {this.getCurrentMonth()}
                         </span>
                     </div>
                     <div class="datepicker-header-next">
                         {maxallowed && 
                             <button onClick={() => this.handleChangeMonth(1)}>
-                                <mortar-icon kind="next" arialabel="Next Month"></mortar-icon>
+                                <mortar-icon kind="next" label={this.nextlabel}></mortar-icon>
                             </button>
                         }
                     </div>
                 </div>
-                <div class="datepicker-body" 
-                    tabindex="0" 
-                    onFocus={this.handleCalendarFocus} 
-                    onBlur={this.handleCalendarBlur}
+                <div class="datepicker-body"
+                    role="grid"
+                    aria-labelledby={`${this.name}-label`}
                 >
                     <div class="datepicker-days">
                         {
@@ -531,7 +621,7 @@ export class MortarDatepicker {
                             })
                         }
                     </div>
-                    <div class="datepicker-content">
+                    <div class="datepicker-content" ref={this.handleCalendarRef}>
                         {this.getCalendarDays(cm)}
                     </div>
                 </div>

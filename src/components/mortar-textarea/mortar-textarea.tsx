@@ -55,8 +55,8 @@ export class MortarTextarea {
         <textarea 
           class={this.className()}
           id={this.name} 
-          disabled={this.disabled === true} 
-          required={this.required === true} 
+          disabled={this.disabled} 
+          required={this.required} 
           placeholder={this.placeholder}
           onInput={this.handleInput}
           ref={this.handleRef}

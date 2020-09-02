@@ -28,6 +28,7 @@ export class MortarRadioToggleItem {
                     required={this.required}
                     checked={this.checked}
                     value={this.value}
+                    aria-required={this.required}
                 />
                 <label htmlFor={this.name} class={this.className()}>
                     {this.label}

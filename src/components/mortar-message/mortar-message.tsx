@@ -10,8 +10,8 @@ export class MortarMessage {
   @Prop() open = false;
 
   className = () => {
-    return classnames('message', `message-${this.kind}`, {
-      'show': this.open === true
+    return classnames('system-message', `message-${this.kind}`, {
+      'show': this.open
     });
   }
 

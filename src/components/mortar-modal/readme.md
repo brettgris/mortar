@@ -28,9 +28,12 @@ include: true
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default |
-| -------- | --------- | ----------- | --------- | ------- |
-| `open`   | `open`    |             | `boolean` | `false` |
+| Property        | Attribute       | Description | Type          | Default   |
+| --------------- | --------------- | ----------- | ------------- | --------- |
+| `closebtnlabel` | `closebtnlabel` |             | `string`      | `'Close'` |
+| `focusEl`       | --              |             | `HTMLElement` | `null`    |
+| `name`          | `name`          |             | `string`      | `''`      |
+| `open`          | `open`          |             | `boolean`     | `false`   |
 
 
 ## Dependencies

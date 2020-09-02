@@ -16,12 +16,12 @@ export class MortarFormElement implements ComponentInterface {
 
   render() {
     return (
-      <fieldset class={this.elementclass} disabled={this.disabled === true}>
+      <fieldset class={this.elementclass}>
         {this.label && <label htmlFor={this.name}>{this.label}</label>}
         {this.legend && <legend id={this.legendId}>{this.legend}</legend>}
         <slot></slot>
         {this.help && <div class="helper-message show">{this.help}</div>}
-        {this.haserror === true && <div class="error-message show" role="alert">{this.error}</div>}
+        {this.haserror && <div class="error-message show" role="alert">{this.error}</div>}
       </fieldset>
     );
   }

@@ -18,6 +18,7 @@ export class MortarInput {
   @Prop() inputmode = 'text';
   @Prop() pattern = '';
   @Prop() name = 'input';
+  @Prop() required = false;
 
   className() {
     return `text ${this.size}`;
@@ -42,6 +43,7 @@ export class MortarInput {
           inputmode={this.inputmode}
           pattern={this.pattern}
           name={this.name}
+          required={this.required}
         />
       </mortar-form-element>
     );

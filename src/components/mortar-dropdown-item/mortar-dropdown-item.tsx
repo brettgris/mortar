@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, Method } from '@stencil/core';
+import { Component, h, Prop, Element, Method, Host } from '@stencil/core';
 import classnames from 'classnames';
 
 @Component({
@@ -28,14 +28,15 @@ export class MortarDropdownItem {
 
     render() {
         return (
-            <div class={this.className()}
+            <Host
+                class={this.className()}
                 role="option"
-                aria-selected={this.selected}
+                aria-selected={this.selected && !this.disabled}
                 data-value={this.value}
                 data-disabled={this.disabled}
             >
                 {this.label}
-            </div>
+            </Host>
         );
     }
 }

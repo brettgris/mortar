@@ -8,6 +8,7 @@ export class MortarIcon implements ComponentInterface {
   @Prop() kind = "";
   @Prop() arialabel = "";
   @Prop() class = "";
+  @Prop() label = '';
 
   className() {
     return `storyicon ${this.kind}StoryIcon ${this.class}`;
@@ -17,7 +18,10 @@ export class MortarIcon implements ComponentInterface {
     return (
       <Host>
         <i class={this.className()} aria-label={this.arialabel}>
-          <slot></slot>
+          {
+            this.label && 
+              <span class="screen-reader-only">{this.label}</span>
+          }
         </i>
       </Host>
     );

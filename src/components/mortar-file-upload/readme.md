@@ -23,7 +23,7 @@ include: true
 | `label`      | `label`      |             | `string`  | `''`            |
 | `multiple`   | `multiple`   |             | `boolean` | `true`          |
 | `name`       | `name`       |             | `string`  | `'file-upload'` |
-| `required`   | `required`   |             | `boolean` | `true`          |
+| `required`   | `required`   |             | `boolean` | `false`         |
 | `text`       | `text`       |             | `string`  | `''`            |
 
 
