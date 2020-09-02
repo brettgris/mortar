@@ -1,5 +1,4 @@
 import { Component, Host, h, Prop } from '@stencil/core';
-import classnames from 'classnames';
 
 @Component({
   tag: 'mortar-message',
@@ -7,18 +6,12 @@ import classnames from 'classnames';
 })
 export class MortarMessage {
   @Prop() kind = 'success';
-  @Prop() open = false;
-
-  className = () => {
-    return classnames('system-message', `message-${this.kind}`, {
-      'show': this.open
-    });
-  }
+  @Prop() open = true;
 
   render() {
     return (
-      <Host>
-        <div class={this.className()} role="alert">
+      <Host class={(this.open) ? '' : 'hide'}>
+        <div class={`system-message message-${this.kind}`} role="alert">
           <div class="header5">
             <slot name="headline"></slot>
           </div>

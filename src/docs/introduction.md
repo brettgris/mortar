@@ -21,11 +21,7 @@ The web components do not include any styling. To include styling, you must incl
 npm i @costar/apts-storybook-lite
 ```
 
-This dependency is managed by the front end team in the solution. But it is required then to import the styles into your solutions.
-
-```html
-<link rel="stylesheet" href="@costar/apts-storybook-lite/dist/style.min.css">
-```
+The storybook dependency is managed by the front end team. It should be in the solutions already. If it isn't please reach out to the front end team.
 
 ### Apartments
 

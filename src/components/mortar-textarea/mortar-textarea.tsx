@@ -10,6 +10,9 @@ export class MortarTextarea {
   @Prop() error = '';
   @Prop() haserror = false;
   @Prop() maxlength = '';
+  @Prop() cols = '20';
+  @Prop() rows = '2';
+  @Prop() hasmessage = true;
   @Prop() message = (amount) => {
     return `${amount} characters remaining`;
   }
@@ -60,10 +63,11 @@ export class MortarTextarea {
           placeholder={this.placeholder}
           onInput={this.handleInput}
           ref={this.handleRef}
-        >
-          {text}
-        </textarea>
-        {this.maxlength && 
+          maxLength={n}
+          cols={Number(this.cols)}
+          rows={Number(this.rows)}
+        ></textarea>
+        {this.maxlength && this.hasmessage && 
           <div class="character-message show">
             {this.message(remaining)}
           </div>

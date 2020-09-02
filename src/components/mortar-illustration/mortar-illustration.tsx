@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Host, h, Prop } from '@stencil/core';
-import { icons } from './selection.json';
+import icons from './icons';
 
 @Component({
   tag: 'mortar-illustration',
@@ -16,8 +16,8 @@ export class MortarIllustration implements ComponentInterface {
   }
 
   render() {
-    const icon = icons.find((i) => i.properties.name === this.kind);
-    const length = icon?.attrs?.length;
+    const icon = icons.find((i) => i.name === this.kind);
+    const length = icon?.length;
 
     return (
       <Host>

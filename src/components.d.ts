@@ -231,15 +231,18 @@ export namespace Components {
         "size": string;
     }
     interface MortarTextarea {
+        "cols": string;
         "disabled": boolean;
         "error": string;
         "haserror": boolean;
+        "hasmessage": boolean;
         "label": string;
         "maxlength": string;
         "message": (amount: any) => string;
         "name": string;
         "placeholder": string;
         "required": boolean;
+        "rows": string;
         "value": string;
     }
     interface MortarToggle {
@@ -668,15 +671,18 @@ declare namespace LocalJSX {
         "size"?: string;
     }
     interface MortarTextarea {
+        "cols"?: string;
         "disabled"?: boolean;
         "error"?: string;
         "haserror"?: boolean;
+        "hasmessage"?: boolean;
         "label"?: string;
         "maxlength"?: string;
         "message"?: (amount: any) => string;
         "name"?: string;
         "placeholder"?: string;
         "required"?: boolean;
+        "rows"?: string;
         "value"?: string;
     }
     interface MortarToggle {
