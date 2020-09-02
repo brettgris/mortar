@@ -20,6 +20,7 @@ export class MortarRange {
   @Prop() minvalue = '';
   @Prop() maxvalue = '';
   @Prop() size = 'md';
+  @Prop() screenreaderlabel = false;
 
   className = () => {
     return `range-min-max ${this.size}`;
@@ -39,6 +40,7 @@ export class MortarRange {
         error={this.error}
         elementclass={this.className()}
         name={this.name}
+        screenreaderlabel={this.screenreaderlabel}
       >
         <div>
             {this.minlabel && 

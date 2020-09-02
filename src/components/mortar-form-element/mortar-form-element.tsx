@@ -13,12 +13,13 @@ export class MortarFormElement implements ComponentInterface {
   @Prop() disabled = false;
   @Prop() legendId = '';
   @Prop() name = '';
+  @Prop() screenreaderlabel = false;
 
   render() {
     return (
       <fieldset class={this.elementclass}>
-        {this.label && <label htmlFor={this.name}>{this.label}</label>}
-        {this.legend && <legend id={this.legendId}>{this.legend}</legend>}
+        {this.label && <label htmlFor={this.name} class={(this.screenreaderlabel) ? 'screen-reader-only' : ''}>{this.label}</label>}
+        {this.legend && <legend id={this.legendId} class={(this.screenreaderlabel) ? 'screen-reader-only' : ''}>{this.legend}</legend>}
         <slot></slot>
         {this.help && <div class="helper-message show">{this.help}</div>}
         {this.haserror && <div class="error-message show" role="alert">{this.error}</div>}

@@ -14,17 +14,18 @@ include: true
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default         |
-| ------------ | ------------ | ----------- | --------- | --------------- |
-| `descriptor` | `descriptor` |             | `string`  | `''`            |
-| `disabled`   | `disabled`   |             | `boolean` | `false`         |
-| `error`      | `error`      |             | `string`  | `''`            |
-| `haserror`   | `haserror`   |             | `boolean` | `false`         |
-| `label`      | `label`      |             | `string`  | `''`            |
-| `multiple`   | `multiple`   |             | `boolean` | `true`          |
-| `name`       | `name`       |             | `string`  | `'file-upload'` |
-| `required`   | `required`   |             | `boolean` | `false`         |
-| `text`       | `text`       |             | `string`  | `''`            |
+| Property            | Attribute           | Description | Type      | Default         |
+| ------------------- | ------------------- | ----------- | --------- | --------------- |
+| `descriptor`        | `descriptor`        |             | `string`  | `''`            |
+| `disabled`          | `disabled`          |             | `boolean` | `false`         |
+| `error`             | `error`             |             | `string`  | `''`            |
+| `haserror`          | `haserror`          |             | `boolean` | `false`         |
+| `label`             | `label`             |             | `string`  | `''`            |
+| `multiple`          | `multiple`          |             | `boolean` | `true`          |
+| `name`              | `name`              |             | `string`  | `'file-upload'` |
+| `required`          | `required`          |             | `boolean` | `false`         |
+| `screenreaderlabel` | `screenreaderlabel` |             | `boolean` | `false`         |
+| `text`              | `text`              |             | `string`  | `''`            |
 
 
 ## Dependencies

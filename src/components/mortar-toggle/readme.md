@@ -14,16 +14,17 @@ include: true
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default    |
-| ---------- | ---------- | ----------- | --------- | ---------- |
-| `checked`  | `checked`  |             | `boolean` | `false`    |
-| `disabled` | `disabled` |             | `boolean` | `false`    |
-| `error`    | `error`    |             | `string`  | `''`       |
-| `haserror` | `haserror` |             | `boolean` | `false`    |
-| `label`    | `label`    |             | `string`  | `''`       |
-| `name`     | `name`     |             | `string`  | `'toggle'` |
-| `required` | `required` |             | `boolean` | `false`    |
-| `size`     | `size`     |             | `string`  | `'md'`     |
+| Property            | Attribute           | Description | Type      | Default    |
+| ------------------- | ------------------- | ----------- | --------- | ---------- |
+| `checked`           | `checked`           |             | `boolean` | `false`    |
+| `disabled`          | `disabled`          |             | `boolean` | `false`    |
+| `error`             | `error`             |             | `string`  | `''`       |
+| `haserror`          | `haserror`          |             | `boolean` | `false`    |
+| `label`             | `label`             |             | `string`  | `''`       |
+| `name`              | `name`              |             | `string`  | `'toggle'` |
+| `required`          | `required`          |             | `boolean` | `false`    |
+| `screenreaderlabel` | `screenreaderlabel` |             | `boolean` | `false`    |
+| `size`              | `size`              |             | `string`  | `'md'`     |
 
 
 ## Dependencies

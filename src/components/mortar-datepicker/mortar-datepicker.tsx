@@ -29,7 +29,17 @@ export class MortarDatepicker {
   @Prop() disabled = false;
   @Prop() placeholder = "mm/dd/yyyy";
   @Prop() name = 'datepicker';
+  @Prop() monthselectlabel = "choose month";
+  @Prop() yearselectlabel = "choose year";
+  @Prop() nextlabel = "next month";
+  @Prop() previouslabel = "previous month";
+  @Prop() clearlabel = "clear";
+  @Prop() days = ['S', 'M', 'T', 'W', 'R', 'F', 'S'];
+  @Prop() months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  @Prop() monthplaceholder = 'Month';
+  @Prop() yearplaceholder = 'Year';
   @Prop() header = true;
+  @Prop() screenreaderlabel = false;
   @Prop() togglelabel = (date) => {
     if (!date) {
       return 'Choose Date';
@@ -155,6 +165,7 @@ export class MortarDatepicker {
         error={this.error}
         elementclass="datepicker"
         name={this.name}
+        screenreaderlabel={this.screenreaderlabel}
       >
         <div class="datepicker-outer">
           <div class="datepicker-inner">
@@ -186,6 +197,15 @@ export class MortarDatepicker {
             open={this.open}
             header={this.header}
             name={`${this.name}-calendar`}
+            monthselectlabel={this.monthselectlabel}
+            yearselectlabel={this.yearselectlabel}
+            nextlabel={this.nextlabel}
+            previouslabel={this.yearselectlabel}
+            clearlabel={this.clearlabel}
+            days={this.days}
+            months={this.months}
+            monthplaceholder={this.monthplaceholder}
+            yearplaceholder={this.yearselectlabel}
           ></mortar-datepicker-calendar>
         </div>
       </mortar-form-element>

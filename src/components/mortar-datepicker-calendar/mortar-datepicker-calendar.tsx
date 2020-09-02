@@ -13,11 +13,13 @@ export class MortarDatepicker {
     @Prop() name = 'calendar';
     @Prop() days = ['S', 'M', 'T', 'W', 'R', 'F', 'S'];
     @Prop() months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    @Prop() monthPlaceholder = 'Month';
-    @Prop() yearPlaceholder = 'Year';
-    @Prop() nextlabel = "Next Month";
-    @Prop() previouslabel = "Previous Month";
-    @Prop() clearlabel = "Clear";
+    @Prop() monthplaceholder = 'Month';
+    @Prop() yearplaceholder = 'Year';
+    @Prop() nextlabel = "next month";
+    @Prop() previouslabel = "previous month";
+    @Prop() clearlabel = "clear";
+    @Prop() monthselectlabel = "choose month";
+    @Prop() yearselectlabel = "choose year";
     @Prop() selected: Date | string;
     @Prop() current: Date | string;
     @Prop() min: Date | string = new Date(1900, 0, 1);
@@ -26,6 +28,9 @@ export class MortarDatepicker {
     @Prop() highlight = -1;
     @Prop() header = true;
     @Prop() embed = false;
+    @Prop() screenreaderlabel = false;
+    @Prop() monthlabel = 'select month';
+    @Prop() yearlabel = 'select year';
     @Prop() customClass = (_year, _month, _date) => '';
     @Event() clearDate: EventEmitter<void>;
     @Event() selectDate: EventEmitter<Date>;
@@ -529,6 +534,7 @@ export class MortarDatepicker {
                     error={this.error}
                     elementclass="datepicker"
                     name={this.name}
+                    screenreaderlabel={this.screenreaderlabel}
                 >
                     {this.renderEl()}
                 </mortar-form-element>
@@ -556,9 +562,12 @@ export class MortarDatepicker {
                         <div class="datepicker-select-dropdown">
                             <mortar-dropdown 
                                 value={this.getMonthValue()}
-                                placeholder={this.monthPlaceholder}
+                                placeholder={this.monthplaceholder}
                                 onItemSelect={this.handleChangeCurrentMonth}
                                 name={`${this.name}-month-select`}
+                                label={this.monthselectlabel}
+                                screenreaderlabel={true}
+                                size="sm"
                             >
                                 {this.getAvailableMonths()}
                             </mortar-dropdown>
@@ -566,9 +575,12 @@ export class MortarDatepicker {
                         <div class="datepicker-select-dropdown">
                             <mortar-dropdown
                                 value={this.getYearValue()}
-                                placeholder={this.yearPlaceholder}
+                                placeholder={this.yearplaceholder}
                                 onItemSelect={this.handleChangeCurrentYear}
                                 name={`${this.name}-year-select`}
+                                label={this.yearselectlabel}
+                                screenreaderlabel={true}
+                                size="sm"
                             >
                                 {this.getAvailableYears()}
                             </mortar-dropdown>

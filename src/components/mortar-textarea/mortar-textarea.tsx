@@ -21,6 +21,7 @@ export class MortarTextarea {
   @Prop() required = true;
   @Prop() value = '';
   @Prop() placeholder = '';
+  @Prop() screenreaderlabel = false;
 
   private inputEl?;
 
@@ -54,6 +55,7 @@ export class MortarTextarea {
         haserror={this.haserror}
         elementclass="text-area"
         name={this.name}
+        screenreaderlabel={this.screenreaderlabel}
       >
         <textarea 
           class={this.className()}

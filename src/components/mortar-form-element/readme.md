@@ -12,17 +12,18 @@ include: true
 
 ## Properties
 
-| Property       | Attribute      | Description | Type      | Default |
-| -------------- | -------------- | ----------- | --------- | ------- |
-| `disabled`     | `disabled`     |             | `boolean` | `false` |
-| `elementclass` | `elementclass` |             | `string`  | `''`    |
-| `error`        | `error`        |             | `string`  | `''`    |
-| `haserror`     | `haserror`     |             | `boolean` | `false` |
-| `help`         | `help`         |             | `string`  | `''`    |
-| `label`        | `label`        |             | `string`  | `''`    |
-| `legend`       | `legend`       |             | `string`  | `''`    |
-| `legendId`     | `legend-id`    |             | `string`  | `''`    |
-| `name`         | `name`         |             | `string`  | `''`    |
+| Property            | Attribute           | Description | Type      | Default |
+| ------------------- | ------------------- | ----------- | --------- | ------- |
+| `disabled`          | `disabled`          |             | `boolean` | `false` |
+| `elementclass`      | `elementclass`      |             | `string`  | `''`    |
+| `error`             | `error`             |             | `string`  | `''`    |
+| `haserror`          | `haserror`          |             | `boolean` | `false` |
+| `help`              | `help`              |             | `string`  | `''`    |
+| `label`             | `label`             |             | `string`  | `''`    |
+| `legend`            | `legend`            |             | `string`  | `''`    |
+| `legendId`          | `legend-id`         |             | `string`  | `''`    |
+| `name`              | `name`              |             | `string`  | `''`    |
+| `screenreaderlabel` | `screenreaderlabel` |             | `boolean` | `false` |
 
 
 ## Dependencies

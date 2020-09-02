@@ -20,21 +20,22 @@ include: true
 
 ## Properties
 
-| Property      | Attribute     | Description | Type      | Default      |
-| ------------- | ------------- | ----------- | --------- | ------------ |
-| `disabled`    | `disabled`    |             | `boolean` | `false`      |
-| `error`       | `error`       |             | `string`  | `''`         |
-| `focused`     | `focused`     |             | `boolean` | `false`      |
-| `haserror`    | `haserror`    |             | `boolean` | `false`      |
-| `help`        | `help`        |             | `string`  | `''`         |
-| `highlight`   | `highlight`   |             | `number`  | `-1`         |
-| `label`       | `label`       |             | `string`  | `''`         |
-| `name`        | `name`        |             | `string`  | `'dropdown'` |
-| `open`        | `open`        |             | `boolean` | `false`      |
-| `placeholder` | `placeholder` |             | `string`  | `''`         |
-| `required`    | `required`    |             | `boolean` | `false`      |
-| `size`        | `size`        |             | `string`  | `'md'`       |
-| `value`       | `value`       |             | `string`  | `''`         |
+| Property            | Attribute           | Description | Type      | Default      |
+| ------------------- | ------------------- | ----------- | --------- | ------------ |
+| `disabled`          | `disabled`          |             | `boolean` | `false`      |
+| `error`             | `error`             |             | `string`  | `''`         |
+| `focused`           | `focused`           |             | `boolean` | `false`      |
+| `haserror`          | `haserror`          |             | `boolean` | `false`      |
+| `help`              | `help`              |             | `string`  | `''`         |
+| `highlight`         | `highlight`         |             | `number`  | `-1`         |
+| `label`             | `label`             |             | `string`  | `''`         |
+| `name`              | `name`              |             | `string`  | `'dropdown'` |
+| `open`              | `open`              |             | `boolean` | `false`      |
+| `placeholder`       | `placeholder`       |             | `string`  | `''`         |
+| `required`          | `required`          |             | `boolean` | `false`      |
+| `screenreaderlabel` | `screenreaderlabel` |             | `boolean` | `false`      |
+| `size`              | `size`              |             | `string`  | `'md'`       |
+| `value`             | `value`             |             | `string`  | `''`         |
 
 
 ## Events

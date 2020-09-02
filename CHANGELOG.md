@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://tfs.prd.costargroup.com///compare/v0.1.18...v0.2.0) (2020-09-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **all:** Components are loaded differently
+
+### Features
+
+* **all:** change so all components can be loaded with children elements instead of JS options ([27d01b9](https://tfs.prd.costargroup.com///commit/27d01b97b5a525593e97c09b4fd1cf2fd8172173))
+* **component:** ablity to add screen reader only labels ([24d7929](https://tfs.prd.costargroup.com///commit/24d7929a63bdddaeed500fd11b996aa8bf92b62b))
+* **components:** accessibility Improvements for Components, Keyboard, Focus State, Labels ([cd280fc](https://tfs.prd.costargroup.com///commit/cd280fcca65e5e0cfec14cfbd60a3f4eca857f2a))
+* **datepicker:** adding support for string dates in datepicker ([ce50c3d](https://tfs.prd.costargroup.com///commit/ce50c3d38255fb7a0e2952db14a162367e04d9b7))
+* **icons/illustration:** add Node script to parse icons/illustration to decrease package size ([6d14e5d](https://tfs.prd.costargroup.com///commit/6d14e5d496ce5634c7bfda456dcbae9de93e29de))
+* **site:** adding a documentation site with live examples ([6a4bac1](https://tfs.prd.costargroup.com///commit/6a4bac1bcbdbe55ca7c18edcfea93636ad536ba5))
+
+
+### Bug Fixes
+
+* **datepicker:** fix min and max arrows not showing when null ([3e6ebfc](https://tfs.prd.costargroup.com///commit/3e6ebfcc6383c82601952544e73fba686173440b))
+* **site:** update Mobile Menu Position ([9e0fb3e](https://tfs.prd.costargroup.com///commit/9e0fb3eb7c5470beced0ed22fc4ab445b0f22a6a))
+
 ### [0.1.18](https://tfs.prd.costargroup.com///compare/v0.1.17...v0.1.18) (2020-08-25)
 
 ### [0.1.17](https://tfs.prd.costargroup.com///compare/v0.1.16...v0.1.17) (2020-08-24)

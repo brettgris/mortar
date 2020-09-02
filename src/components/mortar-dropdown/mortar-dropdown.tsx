@@ -20,6 +20,7 @@ export class MortarDropdown {
   @Prop() value = '';
   @Prop() required = false;
   @Prop() name = 'dropdown';
+  @Prop() screenreaderlabel = false;
   @Event() itemSelect: EventEmitter<Object>;
 
   @Element() el: HTMLElement;
@@ -279,6 +280,7 @@ export class MortarDropdown {
         elementclass="dropdown"
         ref={this.handleDropdownRef}
         name={this.name}
+        screenreaderlabel={this.screenreaderlabel}
       >
         <div class={this.className()}  
             tabindex="0" 

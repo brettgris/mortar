@@ -15,6 +15,7 @@ export class MortarFileUpload implements ComponentInterface {
   @Prop() descriptor = '';
   @Prop() multiple = true;
   @Prop() required = false;
+  @Prop() screenreaderlabel = false;
 
   labelClassName = () => {
     return classnames('input-label', {
@@ -32,6 +33,7 @@ export class MortarFileUpload implements ComponentInterface {
         haserror={this.haserror}
         error={this.error}
         name={this.name}
+        screenreaderlabel={this.screenreaderlabel}
       >
         <input id={this.name} type="file" multiple={this.multiple} required={this.required} aria-required={this.required} />
         <label htmlFor={this.name} class={this.labelClassName()}>

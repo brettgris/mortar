@@ -9,6 +9,7 @@ export class MortarCheckbox {
   @Prop() haserror = false;
   @Prop() error = '';
   @Prop() name = '';
+  @Prop() screenreaderlabel = false;
 
   render() {
     return (
@@ -18,6 +19,7 @@ export class MortarCheckbox {
         error={this.error}
         elementclass="checkbox"
         name={this.name}
+        screenreaderlabel={this.screenreaderlabel}
       >
         <slot></slot>
       </mortar-form-element>

@@ -14,6 +14,7 @@ export class MortarToggle {
   @Prop() required = false;
   @Prop() size = 'md';
   @Prop() checked = false;
+  @Prop() screenreaderlabel = false;
 
   className = () => {
     return classnames('toggle', `toggle-${this.size}`, {
@@ -29,6 +30,7 @@ export class MortarToggle {
         haserror={this.haserror}
         elementclass="toggle-wrapper"
         name={this.name}
+        screenreaderlabel={this.screenreaderlabel}
       >
         <input 
           class={this.className()}

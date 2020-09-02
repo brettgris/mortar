@@ -21,22 +21,23 @@ include: true
 
 ## Properties
 
-| Property         | Attribute        | Description | Type      | Default         |
-| ---------------- | ---------------- | ----------- | --------- | --------------- |
-| `disabled`       | `disabled`       |             | `boolean` | `false`         |
-| `error`          | `error`          |             | `string`  | `''`            |
-| `haserror`       | `haserror`       |             | `boolean` | `false`         |
-| `label`          | `label`          |             | `string`  | `''`            |
-| `maxlabel`       | `maxlabel`       |             | `string`  | `''`            |
-| `maxplaceholder` | `maxplaceholder` |             | `string`  | `''`            |
-| `maxrequired`    | `maxrequired`    |             | `boolean` | `false`         |
-| `maxvalue`       | `maxvalue`       |             | `string`  | `''`            |
-| `minlabel`       | `minlabel`       |             | `string`  | `''`            |
-| `minplaceholder` | `minplaceholder` |             | `string`  | `''`            |
-| `minrequired`    | `minrequired`    |             | `boolean` | `false`         |
-| `minvalue`       | `minvalue`       |             | `string`  | `''`            |
-| `name`           | `name`           |             | `string`  | `'input-range'` |
-| `size`           | `size`           |             | `string`  | `'md'`          |
+| Property            | Attribute           | Description | Type      | Default         |
+| ------------------- | ------------------- | ----------- | --------- | --------------- |
+| `disabled`          | `disabled`          |             | `boolean` | `false`         |
+| `error`             | `error`             |             | `string`  | `''`            |
+| `haserror`          | `haserror`          |             | `boolean` | `false`         |
+| `label`             | `label`             |             | `string`  | `''`            |
+| `maxlabel`          | `maxlabel`          |             | `string`  | `''`            |
+| `maxplaceholder`    | `maxplaceholder`    |             | `string`  | `''`            |
+| `maxrequired`       | `maxrequired`       |             | `boolean` | `false`         |
+| `maxvalue`          | `maxvalue`          |             | `string`  | `''`            |
+| `minlabel`          | `minlabel`          |             | `string`  | `''`            |
+| `minplaceholder`    | `minplaceholder`    |             | `string`  | `''`            |
+| `minrequired`       | `minrequired`       |             | `boolean` | `false`         |
+| `minvalue`          | `minvalue`          |             | `string`  | `''`            |
+| `name`              | `name`              |             | `string`  | `'input-range'` |
+| `screenreaderlabel` | `screenreaderlabel` |             | `boolean` | `false`         |
+| `size`              | `size`              |             | `string`  | `'md'`          |
 
 
 ## Dependencies

@@ -18,12 +18,13 @@ include: true
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default |
-| ---------- | ---------- | ----------- | --------- | ------- |
-| `error`    | `error`    |             | `string`  | `''`    |
-| `haserror` | `haserror` |             | `boolean` | `false` |
-| `label`    | `label`    |             | `string`  | `''`    |
-| `name`     | `name`     |             | `string`  | `''`    |
+| Property            | Attribute           | Description | Type      | Default |
+| ------------------- | ------------------- | ----------- | --------- | ------- |
+| `error`             | `error`             |             | `string`  | `''`    |
+| `haserror`          | `haserror`          |             | `boolean` | `false` |
+| `label`             | `label`             |             | `string`  | `''`    |
+| `name`              | `name`              |             | `string`  | `''`    |
+| `screenreaderlabel` | `screenreaderlabel` |             | `boolean` | `false` |
 
 
 ## Dependencies

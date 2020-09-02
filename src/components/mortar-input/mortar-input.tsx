@@ -19,6 +19,7 @@ export class MortarInput {
   @Prop() pattern = '';
   @Prop() name = 'input';
   @Prop() required = false;
+  @Prop() screenreaderlabel = false;
 
   className() {
     return `text ${this.size}`;
@@ -34,6 +35,7 @@ export class MortarInput {
         error={this.error}
         elementclass={this.className()}
         name={this.name}
+        screenreaderlabel={this.screenreaderlabel}
       >
         <masked-input
           elementclass={(this.haserror) ? 'error' : ''} 

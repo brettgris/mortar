@@ -14,21 +14,22 @@ include: true
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                      | Default                                                          |
-| ------------- | ------------- | ----------- | ------------------------- | ---------------------------------------------------------------- |
-| `cols`        | `cols`        |             | `string`                  | `'20'`                                                           |
-| `disabled`    | `disabled`    |             | `boolean`                 | `false`                                                          |
-| `error`       | `error`       |             | `string`                  | `''`                                                             |
-| `haserror`    | `haserror`    |             | `boolean`                 | `false`                                                          |
-| `hasmessage`  | `hasmessage`  |             | `boolean`                 | `true`                                                           |
-| `label`       | `label`       |             | `string`                  | `''`                                                             |
-| `maxlength`   | `maxlength`   |             | `string`                  | `''`                                                             |
-| `message`     | --            |             | `(amount: any) => string` | `(amount) => {     return `${amount} characters remaining`;   }` |
-| `name`        | `name`        |             | `string`                  | `'textarea'`                                                     |
-| `placeholder` | `placeholder` |             | `string`                  | `''`                                                             |
-| `required`    | `required`    |             | `boolean`                 | `true`                                                           |
-| `rows`        | `rows`        |             | `string`                  | `'2'`                                                            |
-| `value`       | `value`       |             | `string`                  | `''`                                                             |
+| Property            | Attribute           | Description | Type                      | Default                                                          |
+| ------------------- | ------------------- | ----------- | ------------------------- | ---------------------------------------------------------------- |
+| `cols`              | `cols`              |             | `string`                  | `'20'`                                                           |
+| `disabled`          | `disabled`          |             | `boolean`                 | `false`                                                          |
+| `error`             | `error`             |             | `string`                  | `''`                                                             |
+| `haserror`          | `haserror`          |             | `boolean`                 | `false`                                                          |
+| `hasmessage`        | `hasmessage`        |             | `boolean`                 | `true`                                                           |
+| `label`             | `label`             |             | `string`                  | `''`                                                             |
+| `maxlength`         | `maxlength`         |             | `string`                  | `''`                                                             |
+| `message`           | --                  |             | `(amount: any) => string` | `(amount) => {     return `${amount} characters remaining`;   }` |
+| `name`              | `name`              |             | `string`                  | `'textarea'`                                                     |
+| `placeholder`       | `placeholder`       |             | `string`                  | `''`                                                             |
+| `required`          | `required`          |             | `boolean`                 | `true`                                                           |
+| `rows`              | `rows`              |             | `string`                  | `'2'`                                                            |
+| `screenreaderlabel` | `screenreaderlabel` |             | `boolean`                 | `false`                                                          |
+| `value`             | `value`             |             | `string`                  | `''`                                                             |
 
 
 ## Dependencies

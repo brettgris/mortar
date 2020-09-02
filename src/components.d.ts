@@ -47,6 +47,7 @@ export namespace Components {
         "haserror": boolean;
         "label": string;
         "name": string;
+        "screenreaderlabel": boolean;
     }
     interface MortarCheckboxItem {
         "checked": boolean;
@@ -59,7 +60,9 @@ export namespace Components {
         "value": string;
     }
     interface MortarDatepicker {
+        "clearlabel": string;
         "dateToString": (date: any) => string;
+        "days": string[];
         "disabled": boolean;
         "error": string;
         "haserror": boolean;
@@ -68,13 +71,21 @@ export namespace Components {
         "mask": string;
         "max": Date | string;
         "min": Date | string;
+        "monthplaceholder": string;
+        "months": string[];
+        "monthselectlabel": string;
         "name": string;
+        "nextlabel": string;
         "open": boolean;
         "placeholder": string;
+        "previouslabel": string;
         "required": boolean;
+        "screenreaderlabel": boolean;
         "togglelabel": (date: any) => string;
         "value": Date | string;
         "valueString": string;
+        "yearplaceholder": string;
+        "yearselectlabel": string;
     }
     interface MortarDatepickerCalendar {
         "clearlabel": string;
@@ -89,14 +100,19 @@ export namespace Components {
         "label": string;
         "max": Date | string;
         "min": Date | string;
-        "monthPlaceholder": string;
+        "monthlabel": string;
+        "monthplaceholder": string;
         "months": string[];
+        "monthselectlabel": string;
         "name": string;
         "nextlabel": string;
         "open": boolean;
         "previouslabel": string;
+        "screenreaderlabel": boolean;
         "selected": Date | string;
-        "yearPlaceholder": string;
+        "yearlabel": string;
+        "yearplaceholder": string;
+        "yearselectlabel": string;
     }
     interface MortarDropdown {
         "disabled": boolean;
@@ -110,6 +126,7 @@ export namespace Components {
         "open": boolean;
         "placeholder": string;
         "required": boolean;
+        "screenreaderlabel": boolean;
         "size": string;
         "value": string;
     }
@@ -130,6 +147,7 @@ export namespace Components {
         "multiple": boolean;
         "name": string;
         "required": boolean;
+        "screenreaderlabel": boolean;
         "text": string;
     }
     interface MortarFormElement {
@@ -142,6 +160,7 @@ export namespace Components {
         "legend": string;
         "legendId": string;
         "name": string;
+        "screenreaderlabel": boolean;
     }
     interface MortarIcon {
         "arialabel": string;
@@ -166,6 +185,7 @@ export namespace Components {
         "pattern": string;
         "placeholder": string;
         "required": boolean;
+        "screenreaderlabel": boolean;
         "size": string;
         "type": string;
         "value": string;
@@ -185,6 +205,7 @@ export namespace Components {
         "haserror": boolean;
         "label": string;
         "name": string;
+        "screenreaderlabel": boolean;
     }
     interface MortarRadioItem {
         "checked": boolean;
@@ -202,6 +223,7 @@ export namespace Components {
         "haserror": boolean;
         "label": string;
         "name": string;
+        "screenreaderlabel": boolean;
     }
     interface MortarRadioToggleItem {
         "checked": boolean;
@@ -228,6 +250,7 @@ export namespace Components {
         "minrequired": boolean;
         "minvalue": string;
         "name": string;
+        "screenreaderlabel": boolean;
         "size": string;
     }
     interface MortarTextarea {
@@ -243,6 +266,7 @@ export namespace Components {
         "placeholder": string;
         "required": boolean;
         "rows": string;
+        "screenreaderlabel": boolean;
         "value": string;
     }
     interface MortarToggle {
@@ -253,6 +277,7 @@ export namespace Components {
         "label": string;
         "name": string;
         "required": boolean;
+        "screenreaderlabel": boolean;
         "size": string;
     }
     interface MortarTooltip {
@@ -478,6 +503,7 @@ declare namespace LocalJSX {
         "haserror"?: boolean;
         "label"?: string;
         "name"?: string;
+        "screenreaderlabel"?: boolean;
     }
     interface MortarCheckboxItem {
         "checked"?: boolean;
@@ -490,7 +516,9 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface MortarDatepicker {
+        "clearlabel"?: string;
         "dateToString"?: (date: any) => string;
+        "days"?: string[];
         "disabled"?: boolean;
         "error"?: string;
         "haserror"?: boolean;
@@ -499,17 +527,25 @@ declare namespace LocalJSX {
         "mask"?: string;
         "max"?: Date | string;
         "min"?: Date | string;
+        "monthplaceholder"?: string;
+        "months"?: string[];
+        "monthselectlabel"?: string;
         "name"?: string;
+        "nextlabel"?: string;
         "onClearDate"?: (event: CustomEvent<void>) => void;
         "onDateOutOfRange"?: (event: CustomEvent<Date>) => void;
         "onInputChange"?: (event: CustomEvent<Date>) => void;
         "onSelectDate"?: (event: CustomEvent<Date>) => void;
         "open"?: boolean;
         "placeholder"?: string;
+        "previouslabel"?: string;
         "required"?: boolean;
+        "screenreaderlabel"?: boolean;
         "togglelabel"?: (date: any) => string;
         "value"?: Date | string;
         "valueString"?: string;
+        "yearplaceholder"?: string;
+        "yearselectlabel"?: string;
     }
     interface MortarDatepickerCalendar {
         "clearlabel"?: string;
@@ -524,8 +560,10 @@ declare namespace LocalJSX {
         "label"?: string;
         "max"?: Date | string;
         "min"?: Date | string;
-        "monthPlaceholder"?: string;
+        "monthlabel"?: string;
+        "monthplaceholder"?: string;
         "months"?: string[];
+        "monthselectlabel"?: string;
         "name"?: string;
         "nextlabel"?: string;
         "onClearDate"?: (event: CustomEvent<void>) => void;
@@ -535,8 +573,11 @@ declare namespace LocalJSX {
         "onSelectDate"?: (event: CustomEvent<Date>) => void;
         "open"?: boolean;
         "previouslabel"?: string;
+        "screenreaderlabel"?: boolean;
         "selected"?: Date | string;
-        "yearPlaceholder"?: string;
+        "yearlabel"?: string;
+        "yearplaceholder"?: string;
+        "yearselectlabel"?: string;
     }
     interface MortarDropdown {
         "disabled"?: boolean;
@@ -551,6 +592,7 @@ declare namespace LocalJSX {
         "open"?: boolean;
         "placeholder"?: string;
         "required"?: boolean;
+        "screenreaderlabel"?: boolean;
         "size"?: string;
         "value"?: string;
     }
@@ -570,6 +612,7 @@ declare namespace LocalJSX {
         "multiple"?: boolean;
         "name"?: string;
         "required"?: boolean;
+        "screenreaderlabel"?: boolean;
         "text"?: string;
     }
     interface MortarFormElement {
@@ -582,6 +625,7 @@ declare namespace LocalJSX {
         "legend"?: string;
         "legendId"?: string;
         "name"?: string;
+        "screenreaderlabel"?: boolean;
     }
     interface MortarIcon {
         "arialabel"?: string;
@@ -606,6 +650,7 @@ declare namespace LocalJSX {
         "pattern"?: string;
         "placeholder"?: string;
         "required"?: boolean;
+        "screenreaderlabel"?: boolean;
         "size"?: string;
         "type"?: string;
         "value"?: string;
@@ -625,6 +670,7 @@ declare namespace LocalJSX {
         "haserror"?: boolean;
         "label"?: string;
         "name"?: string;
+        "screenreaderlabel"?: boolean;
     }
     interface MortarRadioItem {
         "checked"?: boolean;
@@ -642,6 +688,7 @@ declare namespace LocalJSX {
         "haserror"?: boolean;
         "label"?: string;
         "name"?: string;
+        "screenreaderlabel"?: boolean;
     }
     interface MortarRadioToggleItem {
         "checked"?: boolean;
@@ -668,6 +715,7 @@ declare namespace LocalJSX {
         "minrequired"?: boolean;
         "minvalue"?: string;
         "name"?: string;
+        "screenreaderlabel"?: boolean;
         "size"?: string;
     }
     interface MortarTextarea {
@@ -683,6 +731,7 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         "required"?: boolean;
         "rows"?: string;
+        "screenreaderlabel"?: boolean;
         "value"?: string;
     }
     interface MortarToggle {
@@ -693,6 +742,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "name"?: string;
         "required"?: boolean;
+        "screenreaderlabel"?: boolean;
         "size"?: string;
     }
     interface MortarTooltip {
