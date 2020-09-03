@@ -1,0 +1,36 @@
+.illustration-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .illustration-item {
+        display: flex;
+        flex-direction: column;
+        width: 15rem;
+        margin: 0 .25rem;
+        margin-bottom: 1rem;
+
+        @media (max-width: 15rem) {
+            width: 100%;
+        }
+
+        &.reverse {
+            .illustration-icon {
+                background: #333;
+            }
+        }
+    }
+
+    .illustration-icon {
+        text-align: center;
+        margin-bottom: .5rem;
+        mortar-illustration {
+            font-size: 1rem;
+        }
+    }
+
+    .illustration-name {
+        text-align: center;
+        font-size: 12px;
+    }
+}

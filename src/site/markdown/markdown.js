@@ -2,6 +2,8 @@ import React from 'react';
 import MarkdownJSX from 'markdown-to-jsx';
 
 import Code from '../code/code';
+import Icons from '../icons/icons';
+import Illustrations from '../illustrations/illustrations';
 
 const Markdown = ({md}) => {
     return (
@@ -29,7 +31,9 @@ const Markdown = ({md}) => {
                     a: ({href, children}) => (
                         <a href={href} target="_blank" rel="noreferrer">{children}</a>
                     ),
-                    pre: Code
+                    pre: Code,
+                    Icons: Icons,
+                    Illustrations: Illustrations
                 }
             }}
         >

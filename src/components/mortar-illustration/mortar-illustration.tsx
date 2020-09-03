@@ -17,12 +17,12 @@ export class MortarIllustration implements ComponentInterface {
 
   render() {
     const icon = icons.find((i) => i.name === this.kind);
-    const length = icon?.length;
+    const length = (icon) ? icon.length : 0;
 
     return (
       <Host>
         {
-          length && length <= 1 && 
+          length <= 1 && 
             <i class={`storyillustration ${this.kind}StoryIllustration`} aria-label={this.arialabel}>
               {this.label &&
                 <span class="screen-reader-only">{this.label}</span>
@@ -30,7 +30,7 @@ export class MortarIllustration implements ComponentInterface {
             </i>
         }
         {
-          length && length > 1 &&
+          length > 1 &&
             <i class={`storyillustration ${this.kind}StoryIllustration`} aria-label={this.arialabel}>
               {this.renderChildren(length)}
               {this.label &&

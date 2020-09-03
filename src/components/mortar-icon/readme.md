@@ -9,6 +9,8 @@ include: true
 <mortar-icon kind="email"></mortar-icon>
 ```
 
+### VALUES
+<Icons />
 
 <!-- Auto Generated Below -->
 

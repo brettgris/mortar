@@ -10,6 +10,9 @@ include: true
 <mortar-illustration kind="apartmentsBlack"></mortar-illustration>
 ```
 
+### VALUES
+<Illustrations />
+
 <!-- Auto Generated Below -->
 
 

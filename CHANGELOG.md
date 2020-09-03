@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://tfs.prd.costargroup.com///compare/v0.2.1...v0.2.2) (2020-09-03)
+
+
+### Features
+
+* **site:** display Available Icons and Illustrations on site ([e28322d](https://tfs.prd.costargroup.com///commit/e28322d5f9a8588282ea019f25045de8ce6454d5))
+
+### [0.2.1](https://tfs.prd.costargroup.com///compare/v0.2.0...v0.2.1) (2020-09-02)
+
 ## [0.2.0](https://tfs.prd.costargroup.com///compare/v0.1.18...v0.2.0) (2020-09-02)
 
 

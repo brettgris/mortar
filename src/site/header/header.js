@@ -8,7 +8,7 @@ import './header.less';
 const Header = () => {
     const [open, setOpen] = useState(false);
     return (
-        <div class="header-wrapper">
+        <div className="header-wrapper">
             <header>
                 <div className="header-wrapper">
                     <div className="menu-btn">
