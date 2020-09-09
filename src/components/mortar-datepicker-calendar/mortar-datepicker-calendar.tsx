@@ -532,7 +532,7 @@ export class MortarDatepicker {
                     legend={this.label}
                     haserror={this.haserror}
                     error={this.error}
-                    elementclass="datepicker"
+                    elementclass="mortar-datepicker"
                     name={this.name}
                     screenreaderlabel={this.screenreaderlabel}
                 >
@@ -594,12 +594,9 @@ export class MortarDatepicker {
                 }
                 <div class="datepicker-header">
                     <div class="datepicker-header-previous">
-
-                        {minallowed &&
-                            <button onClick={() => this.handleChangeMonth(-1)}>
-                                <mortar-icon kind="back" arialabel="Previous Month" label={this.previouslabel}></mortar-icon>
-                            </button>
-                        }
+                        <button onClick={() => this.handleChangeMonth(-1)} disabled={!minallowed}>
+                            <mortar-icon kind="back" arialabel="Previous Month" label={this.previouslabel}></mortar-icon>
+                        </button>
                     </div>
                     <div class="datepicker-header-display">
                         <span id={`${this.name}-label`}
@@ -609,11 +606,9 @@ export class MortarDatepicker {
                         </span>
                     </div>
                     <div class="datepicker-header-next">
-                        {maxallowed && 
-                            <button onClick={() => this.handleChangeMonth(1)}>
-                                <mortar-icon kind="next" label={this.nextlabel}></mortar-icon>
-                            </button>
-                        }
+                        <button onClick={() => this.handleChangeMonth(1)} disabled={!maxallowed}>
+                            <mortar-icon kind="next" label={this.nextlabel}></mortar-icon>
+                        </button>
                     </div>
                 </div>
                 <div class="datepicker-body"

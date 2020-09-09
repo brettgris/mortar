@@ -163,7 +163,7 @@ export class MortarDatepicker {
         legend={this.label}
         haserror={this.haserror}
         error={this.error}
-        elementclass="datepicker"
+        elementclass="mortar-datepicker"
         name={this.name}
         screenreaderlabel={this.screenreaderlabel}
       >

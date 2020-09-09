@@ -6,7 +6,7 @@ include: true
 # mortar-datepicker-calendar
 
 ```example
-<mortar-datepicker-calendar embed="true" header="false" open="true"></mortar-datepicker-calendar>
+<mortar-datepicker-calendar embed header="false" open></mortar-datepicker-calendar>
 ```
 
 

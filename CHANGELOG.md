@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://tfs.prd.costargroup.com///compare/v0.2.2...v0.2.3) (2020-09-09)
+
+
+### Bug Fixes
+
+* **datepicker:** updating datepicker to remove conflict in apts ([0043f49](https://tfs.prd.costargroup.com///commit/0043f49dad495b3fefe8fa90be1e8c04c0266b82))
+
 ### [0.2.2](https://tfs.prd.costargroup.com///compare/v0.2.1...v0.2.2) (2020-09-03)
 
 
