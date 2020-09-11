@@ -35,7 +35,9 @@ export class MortarDatepicker {
   @Prop() previouslabel = "previous month";
   @Prop() clearlabel = "clear";
   @Prop() days = ['S', 'M', 'T', 'W', 'R', 'F', 'S'];
+  @Prop() daystr: string;
   @Prop() months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  @Prop() monthstr: string;
   @Prop() monthplaceholder = 'Month';
   @Prop() yearplaceholder = 'Year';
   @Prop() header = true;
@@ -203,7 +205,9 @@ export class MortarDatepicker {
             previouslabel={this.yearselectlabel}
             clearlabel={this.clearlabel}
             days={this.days}
+            daystr={this.daystr}
             months={this.months}
+            monthstr={this.monthstr}
             monthplaceholder={this.monthplaceholder}
             yearplaceholder={this.yearselectlabel}
           ></mortar-datepicker-calendar>

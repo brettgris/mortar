@@ -12,7 +12,9 @@ export class MortarDatepicker {
     @Prop() haserror = false;
     @Prop() name = 'calendar';
     @Prop() days = ['S', 'M', 'T', 'W', 'R', 'F', 'S'];
-    @Prop() months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    @Prop() daystr: string;
+    @Prop() months: Array<string> = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    @Prop() monthstr: string;
     @Prop() monthplaceholder = 'Month';
     @Prop() yearplaceholder = 'Year';
     @Prop() nextlabel = "next month";
@@ -61,8 +63,24 @@ export class MortarDatepicker {
         }
     }
 
+    @Watch('monthstr')
+    handleMonthStr(val: string) {
+        this.months = val.split(",");
+    } 
+
+    @Watch('daystr')
+    handleDayStr(val: string) {
+        this.days = val.split(",");
+    } 
+
     componentWillLoad() {
         this.currentHighlight();
+        if (this.monthstr) {
+            this.handleMonthStr(this.monthstr);
+        }
+        if (this.daystr) {
+            this.handleDayStr(this.daystr);
+        }
     }
 
     /*** 

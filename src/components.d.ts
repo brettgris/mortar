@@ -63,6 +63,7 @@ export namespace Components {
         "clearlabel": string;
         "dateToString": (date: any) => string;
         "days": string[];
+        "daystr": string;
         "disabled": boolean;
         "error": string;
         "haserror": boolean;
@@ -74,6 +75,7 @@ export namespace Components {
         "monthplaceholder": string;
         "months": string[];
         "monthselectlabel": string;
+        "monthstr": string;
         "name": string;
         "nextlabel": string;
         "open": boolean;
@@ -92,6 +94,7 @@ export namespace Components {
         "current": Date | string;
         "customClass": (_year: any, _month: any, _date: any) => string;
         "days": string[];
+        "daystr": string;
         "embed": boolean;
         "error": string;
         "haserror": boolean;
@@ -102,8 +105,9 @@ export namespace Components {
         "min": Date | string;
         "monthlabel": string;
         "monthplaceholder": string;
-        "months": string[];
+        "months": Array<string>;
         "monthselectlabel": string;
+        "monthstr": string;
         "name": string;
         "nextlabel": string;
         "open": boolean;
@@ -519,6 +523,7 @@ declare namespace LocalJSX {
         "clearlabel"?: string;
         "dateToString"?: (date: any) => string;
         "days"?: string[];
+        "daystr"?: string;
         "disabled"?: boolean;
         "error"?: string;
         "haserror"?: boolean;
@@ -530,6 +535,7 @@ declare namespace LocalJSX {
         "monthplaceholder"?: string;
         "months"?: string[];
         "monthselectlabel"?: string;
+        "monthstr"?: string;
         "name"?: string;
         "nextlabel"?: string;
         "onClearDate"?: (event: CustomEvent<void>) => void;
@@ -552,6 +558,7 @@ declare namespace LocalJSX {
         "current"?: Date | string;
         "customClass"?: (_year: any, _month: any, _date: any) => string;
         "days"?: string[];
+        "daystr"?: string;
         "embed"?: boolean;
         "error"?: string;
         "haserror"?: boolean;
@@ -562,8 +569,9 @@ declare namespace LocalJSX {
         "min"?: Date | string;
         "monthlabel"?: string;
         "monthplaceholder"?: string;
-        "months"?: string[];
+        "months"?: Array<string>;
         "monthselectlabel"?: string;
+        "monthstr"?: string;
         "name"?: string;
         "nextlabel"?: string;
         "onClearDate"?: (event: CustomEvent<void>) => void;

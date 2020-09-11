@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://tfs.prd.costargroup.com///compare/v0.2.3...v0.2.4) (2020-09-11)
+
+
+### Features
+
+* **datepicker:** add ability to change month and day labels from html ([dc3580f](https://tfs.prd.costargroup.com///commit/dc3580f81a3183fc1edd237fe520674ad1a65c8e))
+
 ### [0.2.3](https://tfs.prd.costargroup.com///compare/v0.2.2...v0.2.3) (2020-09-09)
 
 

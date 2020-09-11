@@ -1,6 +1,6 @@
 {
   "name": "@costar/apts-web-components",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
