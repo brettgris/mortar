@@ -33,6 +33,9 @@ export namespace Components {
         "open": boolean;
         "overlay": boolean;
     }
+    interface MortarBadge {
+        "kind": string;
+    }
     interface MortarButton {
         "buttontype": string;
         "disabled": boolean;
@@ -304,6 +307,12 @@ declare global {
         prototype: HTMLMortarAlertElement;
         new (): HTMLMortarAlertElement;
     };
+    interface HTMLMortarBadgeElement extends Components.MortarBadge, HTMLStencilElement {
+    }
+    var HTMLMortarBadgeElement: {
+        prototype: HTMLMortarBadgeElement;
+        new (): HTMLMortarBadgeElement;
+    };
     interface HTMLMortarButtonElement extends Components.MortarButton, HTMLStencilElement {
     }
     var HTMLMortarButtonElement: {
@@ -439,6 +448,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "masked-input": HTMLMaskedInputElement;
         "mortar-alert": HTMLMortarAlertElement;
+        "mortar-badge": HTMLMortarBadgeElement;
         "mortar-button": HTMLMortarButtonElement;
         "mortar-checkbox": HTMLMortarCheckboxElement;
         "mortar-checkbox-item": HTMLMortarCheckboxItemElement;
@@ -492,6 +502,9 @@ declare namespace LocalJSX {
         "kind"?: string;
         "open"?: boolean;
         "overlay"?: boolean;
+    }
+    interface MortarBadge {
+        "kind"?: string;
     }
     interface MortarButton {
         "buttontype"?: string;
@@ -762,6 +775,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "masked-input": MaskedInput;
         "mortar-alert": MortarAlert;
+        "mortar-badge": MortarBadge;
         "mortar-button": MortarButton;
         "mortar-checkbox": MortarCheckbox;
         "mortar-checkbox-item": MortarCheckboxItem;
@@ -792,6 +806,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "masked-input": LocalJSX.MaskedInput & JSXBase.HTMLAttributes<HTMLMaskedInputElement>;
             "mortar-alert": LocalJSX.MortarAlert & JSXBase.HTMLAttributes<HTMLMortarAlertElement>;
+            "mortar-badge": LocalJSX.MortarBadge & JSXBase.HTMLAttributes<HTMLMortarBadgeElement>;
             "mortar-button": LocalJSX.MortarButton & JSXBase.HTMLAttributes<HTMLMortarButtonElement>;
             "mortar-checkbox": LocalJSX.MortarCheckbox & JSXBase.HTMLAttributes<HTMLMortarCheckboxElement>;
             "mortar-checkbox-item": LocalJSX.MortarCheckboxItem & JSXBase.HTMLAttributes<HTMLMortarCheckboxItemElement>;

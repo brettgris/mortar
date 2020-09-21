@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.5](https://tfs.prd.costargroup.com///compare/v0.2.4...v0.2.5) (2020-09-21)
+
+
+### Features
+
+* **badge:** adding Badge Component and Pill Button Kind ([7612400](https://tfs.prd.costargroup.com///commit/76124001a287b825cbd30976e90e5d560b497b79))
+
 ### [0.2.4](https://tfs.prd.costargroup.com///compare/v0.2.3...v0.2.4) (2020-09-11)
 
 
