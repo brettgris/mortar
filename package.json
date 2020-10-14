@@ -1,6 +1,6 @@
 {
   "name": "@costar/apts-web-components",
-  "version": "0.2.5",
+  "version": "0.2.10",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -18,7 +18,7 @@
     "static": "gatsby build",
     "serve": "gatsby serve",
     "dev": "node ./icons.js && stencil build --dev --watch --serve",
-    "build": "node ./icons.js && stencil build --docs && webpack",
+    "build": "node ./icons.js && stencil build --docs && webpack && node ./angular.js",
     "start": "npm-run-all build develop",
     "icons": "node ./icons.js",
     "test": "stencil test --spec --e2e",
@@ -27,7 +27,8 @@
     "component": "stencil generate",
     "webpack": "webpack",
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "angular": "node ./angular.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
@@ -69,7 +70,8 @@
     "react-mermaid2": "^0.1.4",
     "text-mask-addons": "^3.8.0",
     "typescript": "^3.8.3",
-    "vanilla-text-mask": "^5.1.1"
+    "vanilla-text-mask": "^5.1.1",
+    "whatwg-fetch": "^3.4.1"
   },
   "repository": {
     "type": "git",

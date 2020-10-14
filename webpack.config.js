@@ -8,6 +8,9 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist/bundle'),
         filename: 'bundle.js',
+        library: 'mortar',
+        libraryTarget: 'amd',
+        umdNamedDefine: true
     },
     module: {
         rules: [

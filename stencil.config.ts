@@ -6,7 +6,7 @@ export const config: Config = {
   taskQueue: 'async',
   outputTargets: [
     angularOutputTarget({
-      componentCorePackage: 'mortar',
+      componentCorePackage: '@costar/apts-web-components',
       directivesProxyFile: 'dist/angular/directives/proxies.ts',
       valueAccessorConfigs: ValueAccessorConfig,
     }),

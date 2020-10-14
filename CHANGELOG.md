@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.10](https://tfs.prd.costargroup.com///compare/v0.2.9...v0.2.10) (2020-10-14)
+
+### [0.2.9](https://tfs.prd.costargroup.com///compare/v0.2.8...v0.2.9) (2020-10-14)
+
+
+### Bug Fixes
+
+* **angular:** update angular module import ([850631e](https://tfs.prd.costargroup.com///commit/850631e38d6ad0d4ea85ce1acaee17682dd4a03a))
+
+### [0.2.8](https://tfs.prd.costargroup.com///compare/v0.2.7...v0.2.8) (2020-10-14)
+
+### [0.2.7](https://tfs.prd.costargroup.com///compare/v0.2.6...v0.2.7) (2020-10-13)
+
+### [0.2.6](https://tfs.prd.costargroup.com///compare/v0.2.5...v0.2.6) (2020-10-13)
+
 ### [0.2.5](https://tfs.prd.costargroup.com///compare/v0.2.4...v0.2.5) (2020-09-21)
 
 

@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+
 import { applyPolyfills } from './dist/esm/polyfills/index';
 import { defineCustomElements } from './dist/esm/loader';
 

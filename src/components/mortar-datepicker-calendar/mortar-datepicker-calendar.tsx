@@ -6,7 +6,7 @@ import focusLock from 'dom-focus-lock';
   tag: 'mortar-datepicker-calendar',
   scoped: false,
 })
-export class MortarDatepicker {
+export class MortarDatepickerCalendar {
     @Prop() label = '';
     @Prop() error = '';
     @Prop() haserror = false;
