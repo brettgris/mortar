@@ -234,9 +234,6 @@ export default [
     name: "ollListing",
     length: 7
 },{
-    name: "ollMoney",
-    length: 10
-},{
     name: "ollSupport",
     length: 2
 },{
@@ -341,5 +338,8 @@ export default [
 },{
     name: "propertyFav",
     length: 3
+},{
+    name: "ollPayments",
+    length: 2
 }
 ]

@@ -295,7 +295,7 @@ export default [
     length: 0
 },{
     name: "rssShare",
-    length: 0
+    length: 1
 },{
     name: "sale",
     length: 0
@@ -553,6 +553,27 @@ export default [
     length: 1
 },{
     name: "split",
+    length: 1
+},{
+    name: "saleSolid",
+    length: 1
+},{
+    name: "participants",
+    length: 1
+},{
+    name: "support",
+    length: 1
+},{
+    name: "userLogin",
+    length: 1
+},{
+    name: "renterTools",
+    length: 1
+},{
+    name: "share",
+    length: 1
+},{
+    name: "thumbsUp",
     length: 1
 }
 ]
